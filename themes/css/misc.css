@@ -1,0 +1,198 @@
+/* Editar imagenes de historias */
+.repetido{
+  color:red;
+}
+
+/* Editar Descipción del Proyecto */
+.placeholder::placeholder{
+  color: #d18a9a;
+}
+
+/* Búsqueda avanzada */
+#avanzada-mobile{
+  margin-top:10px;
+  margin-left:10px;
+}
+
+/* Carrusel de paginas */
+
+.carrusel a{
+  padding: 30px 30px;
+  margin: -30px -30px;
+}
+
+/* CAMBIOS DE CSS A PLUGINS Y TEMPLATES USADOS */
+
+.historia_texto{
+    font-size: 20px;
+}
+
+.historia_titulo{
+    font-size: 45px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.historia_autor{
+    font-size: 25px;
+}
+
+.historia_fecha{
+    font-size: 15px;
+}
+
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+    background-color: #ccc;
+    border: 1px solid #ddd;
+}
+
+/* Alinear bien grid de fotos en la búsqueda */
+.row.recent-posts div:nth-child(4n+1){
+    clear:both;
+  }
+
+
+/* Alinear caja de búsqueda cuando se scrollea */
+.navigation.sticky.scrolling form {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 10px;
+}
+
+.navigation2.sticky{
+    margin-top:-20px;
+    padding-top:0px;
+    visibility: visible;
+}
+
+/* Radio buttons seleccionar tipo de archivo en alimentar_serie.php */
+.btn-primary{
+    border-radius:6px;
+    background-color: #2cb8a5;
+}
+
+.btn-primary.active, .btn-primary.active:hover, .btn-primary:hover{
+    border-radius: 6px;
+    background-color:#ef5659;
+    border-color: #ef5659;
+}
+
+.ocultar{
+    display: none;
+}
+
+/* Error en link de video o audio en [php/login/alimentar_serie.php] */
+.error_link{
+    color:red;
+}
+
+audio {
+    width:32vw;
+    min-width: 300px;
+    height:200px;
+    padding-left: 50px;
+}
+
+/*Comentarios*/
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}
+
+
+
+/*
+ * bootstrap-tagsinput v0.8.0
+ * 
+ */
+
+ .bootstrap-tagsinput {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: inline-block;
+    color: #555;
+    padding-left: 6px;
+    vertical-align: middle;
+    max-width: 100%;
+    height:auto;
+    cursor: text;
+    width: 100%;
+  }
+  .bootstrap-tagsinput input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0 6px;
+    margin: 0;
+    width: auto;
+    max-width: inherit;
+  }
+  .bootstrap-tagsinput.form-control input::-moz-placeholder {
+    color: #777;
+    opacity: 1;
+  }
+  .bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+    color: #777;
+  }
+  .bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+    color: #777;
+  }
+  .bootstrap-tagsinput input:focus {
+    border: none;
+    box-shadow: none;
+  }
+  .bootstrap-tagsinput .tag {
+    margin-right: 2px;
+    color: white;
+  }
+  .bootstrap-tagsinput .tag [data-role="remove"] {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  .bootstrap-tagsinput .tag [data-role="remove"]:after {
+    content: "x";
+    padding: 0px 2px;
+  }
+  .bootstrap-tagsinput .tag [data-role="remove"]:hover {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  .bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+  .bootstrap-tagsinput .tag {
+    float: left;
+    margin-top: 11px;
+  }
+
+  .bootstrap-tagsinput > input {
+    float: left !important;
+    text-align: left;
+  }
+
+  .desactivado {
+    background-color: rgb(61, 47, 47) !important;
+  }
+

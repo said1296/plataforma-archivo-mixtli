@@ -1,0 +1,115 @@
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 105
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 122
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 124
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 125
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 126
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined index: colaborador in /home/arc38mix74/public_html/php/explorar/grupo.php on line 151
+[15-Nov-2019 03:06:47 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[15-Nov-2019 03:06:47 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[15-Nov-2019 03:06:47 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[15-Nov-2019 03:06:47 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 154
+[15-Nov-2019 03:06:47 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 154
+[15-Nov-2019 03:12:20 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:20 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:20 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:20 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:12:20 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:12:22 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:22 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:22 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:22 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:12:22 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:12:45 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:45 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:45 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:12:45 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:12:45 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:16:49 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:16:49 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:16:49 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:16:49 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:16:49 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:17:30 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:30 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:30 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:30 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:17:30 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:17:34 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:34 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:34 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:17:34 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:17:34 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:18:15 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:18:15 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:18:15 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:18:15 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:18:15 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:19:27 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:19:27 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:19:27 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:19:27 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:19:27 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:20:04 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:04 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:04 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:04 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:20:04 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:20:09 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:09 UTC] PHP Warning:  include(conexion_tabla.php): failed to open stream: No such file or directory in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:09 UTC] PHP Warning:  include(): Failed opening 'conexion_tabla.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/arc38mix74/public_html/php/explorar/grupo.php on line 128
+[15-Nov-2019 03:20:09 UTC] PHP Notice:  Undefined variable: conexion_tabla in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:20:09 UTC] PHP Fatal error:  Call to a member function query() on null in /home/arc38mix74/public_html/php/explorar/grupo.php on line 130
+[15-Nov-2019 03:20:29 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 137
+[15-Nov-2019 03:20:29 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 139
+[15-Nov-2019 03:20:29 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[15-Nov-2019 03:20:29 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[15-Nov-2019 03:22:28 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 137
+[15-Nov-2019 03:22:28 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 139
+[15-Nov-2019 03:22:28 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[15-Nov-2019 03:22:28 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[15-Nov-2019 03:22:31 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 137
+[15-Nov-2019 03:22:31 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 139
+[15-Nov-2019 03:22:31 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[15-Nov-2019 03:22:31 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 143
+[18-Nov-2019 15:23:05 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 7
+[18-Nov-2019 15:23:05 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[18-Nov-2019 15:23:08 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 7
+[18-Nov-2019 15:23:08 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[18-Nov-2019 15:23:12 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 7
+[18-Nov-2019 15:23:12 UTC] PHP Notice:  Undefined index: grupo in /home/arc38mix74/public_html/php/explorar/grupo.php on line 152
+[18-Nov-2019 15:35:11 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:35:23 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:35:29 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:36:29 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:36:44 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:37:45 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:50:31 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:50:35 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:51:13 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:51:17 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:51:21 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:51:42 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:18 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:24 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:28 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:29 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:29 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:30 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:30 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 15:53:30 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 16:30:32 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 140
+[18-Nov-2019 16:30:51 UTC] PHP Notice:  Undefined index: serie in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 16:35:23 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:35:23 UTC] PHP Notice:  Undefined variable: serie in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:35:37 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:35:37 UTC] PHP Notice:  Undefined variable: serie in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:36:01 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:36:01 UTC] PHP Notice:  Undefined variable: serie in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:36:01 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:36:01 UTC] PHP Notice:  Undefined variable: serie in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:37:14 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 136
+[18-Nov-2019 16:38:46 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/arc38mix74/public_html/php/explorar/buscar.php on line 138
+[18-Nov-2019 16:49:38 UTC] PHP Notice:  Undefined index: consulta in /home/arc38mix74/public_html/php/explorar/buscar.php on line 128
+[18-Nov-2019 17:16:29 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 156
+[18-Nov-2019 17:16:46 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 156
+[18-Nov-2019 17:16:54 UTC] PHP Notice:  Undefined variable: row in /home/arc38mix74/public_html/php/explorar/grupo.php on line 156

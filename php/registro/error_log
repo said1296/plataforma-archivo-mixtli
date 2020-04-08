@@ -1,0 +1,38 @@
+[09-Aug-2019 23:31:35 UTC] PHP Notice:  Undefined index: imagenUser in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[09-Aug-2019 23:31:35 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[23-Aug-2019 19:17:00 UTC] PHP Notice:  Undefined index: imagenUser in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[23-Aug-2019 19:17:00 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[12-Dec-2019 15:30:35 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[12-Dec-2019 15:30:35 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18
+[13-Dec-2019 14:48:03 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[13-Dec-2019 14:48:03 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: autor in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 5
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: usuario in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 6
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: contrasena in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 7
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: email in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 8
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: ocupacion in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 9
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: soy in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 10
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: origen in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 11
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: residencia in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 12
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: edad in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 13
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: genero in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 14
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: imagenUser in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[28-Feb-2020 21:54:55 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: coleccion in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 17
+[28-Feb-2020 21:54:55 UTC] PHP Notice:  Undefined index: img1 in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18
+[28-Feb-2020 21:54:55 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: autor in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 5
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: usuario in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 6
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: contrasena in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 7
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: email in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 8
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: ocupacion in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 9
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: soy in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 10
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: origen in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 11
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: residencia in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 12
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: edad in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 13
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: genero in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 14
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: imagenUser in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[28-Feb-2020 21:55:01 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 15
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: coleccion in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 17
+[28-Feb-2020 21:55:01 UTC] PHP Notice:  Undefined index: img1 in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18
+[28-Feb-2020 21:55:01 UTC] PHP Warning:  file_get_contents(): Filename cannot be empty in /home/arc38mix74/public_html/php/registro/proceso_guardar.php on line 18

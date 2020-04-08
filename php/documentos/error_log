@@ -1,0 +1,2 @@
+[31-Aug-2019 15:16:37 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/arc38mix74/public_html/php/documentos/index.php on line 154
+[31-Aug-2019 15:17:16 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/arc38mix74/public_html/php/documentos/index.php on line 154
