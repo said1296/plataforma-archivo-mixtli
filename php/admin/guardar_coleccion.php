@@ -4,7 +4,7 @@
  
 	
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
 	$autor = $_POST['autor'];
 	$usuario = $_POST['usuario'];

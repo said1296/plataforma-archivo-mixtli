@@ -1,6 +1,6 @@
 <?php
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
     $serie = $_REQUEST['serie'];
     $id = $_REQUEST['id'];

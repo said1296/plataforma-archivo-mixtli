@@ -1,6 +1,6 @@
 <?php
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
     $campo = $_REQUEST['campo'];
     if($_GET['id']){

@@ -4,7 +4,7 @@
  
 	
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
 	$documento = $_POST['documento'];
 	$ano = $_POST['ano'];

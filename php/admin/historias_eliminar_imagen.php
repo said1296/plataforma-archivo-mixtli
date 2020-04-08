@@ -1,6 +1,6 @@
 <?php
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
     $id_historia = $_REQUEST['id_historia'];
     $id = $_REQUEST['id'];

@@ -64,7 +64,7 @@
 <body>
 
     <?php
-        include("conexion_tabla.php");
+        include("../includes/conexion_tabla.php");
         
         $serie = $_GET['serie'];
         

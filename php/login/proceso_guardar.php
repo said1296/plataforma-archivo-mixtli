@@ -4,7 +4,7 @@
  
 	
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
 	
 	$autor = $_SESSION['u_usuario'];
 	$coleccion = $_POST['coleccion'];

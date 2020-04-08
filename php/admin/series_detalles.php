@@ -35,7 +35,7 @@
    $serie = $_REQUEST['serie'];
    $pagina = $_REQUEST['pagina'];
 
-   include("conexion_tabla.php");
+   include("../includes/conexion_tabla.php");
    $query = "SELECT * FROM colecciones
          WHERE id = '$id'";
    $resultado = $conexion_tabla->query($query);

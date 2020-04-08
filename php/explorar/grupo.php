@@ -80,7 +80,7 @@
       
         <?php
 	     $SelectGrupo = $_GET['grupo'];
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 $query = "SELECT * FROM series WHERE grupo = '$SelectGrupo'";
 		 $resultado = $conexion_tabla->query($query);
 		 

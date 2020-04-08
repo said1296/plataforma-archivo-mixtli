@@ -58,7 +58,7 @@
       
         <?php
 	     
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 //include_once 'fotografias.php';
 		 
 		 // cantidad de registros por pagina

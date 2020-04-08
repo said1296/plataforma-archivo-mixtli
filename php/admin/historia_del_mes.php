@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
     
     $id = $_GET['id'];
     

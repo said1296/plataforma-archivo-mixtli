@@ -4,7 +4,7 @@
   
 
   <?php
-   include("conexion_tabla.php");
+   include("../includes/conexion_tabla.php");
    
     $query_historia = "SELECT * FROM historias where mes=1";
     $resultado_historia = $conexion_tabla->query($query_historia);

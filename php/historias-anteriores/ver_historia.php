@@ -4,7 +4,7 @@
   
 
   <?php
-	include("conexion_tabla.php");
+	include("../includes/conexion_tabla.php");
     $id_historias = $_GET['id'];
     $query_historia = "SELECT * FROM historias where id='$id_historias'";
     $resultado_historia = $conexion_tabla->query($query_historia);

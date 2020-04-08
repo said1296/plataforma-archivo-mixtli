@@ -70,7 +70,7 @@
 		 		$consulta = $_REQUEST['consulta'];
 		 
 		 
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 $query = "SELECT * FROM series WHERE serie LIKE '%$consulta%' AND grupo = '$SelectGrupo' ";
 		 $resultado = $conexion_tabla->query($query);
 		 

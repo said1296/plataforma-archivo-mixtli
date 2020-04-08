@@ -6,7 +6,7 @@
   <?php
 	    $id = $_REQUEST['id'];
 		
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
  		 $query = "SELECT * FROM colecciones
 					WHERE id = '$id' ";
 		 

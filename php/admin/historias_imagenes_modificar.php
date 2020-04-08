@@ -55,7 +55,7 @@
 	 <div class="title-holder">
 	  <div class="title-text">
       <?php
-      include("conexion_tabla.php");
+      include("../includes/conexion_tabla.php");
 
       $id_historia = $_GET['id_historia'];
 

@@ -79,7 +79,7 @@
       
         <?php
 	     $SelectGrupo = $_GET['grupo'];
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 $query = "SELECT * FROM historias";
 		 $resultado = $conexion_tabla->query($query);
 		 

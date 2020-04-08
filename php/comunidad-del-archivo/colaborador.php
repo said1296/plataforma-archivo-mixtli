@@ -5,7 +5,7 @@
   <?php
 	    $SelectImagen_1 = $_GET['colaborador'];
 			 
-	     include("conexion_tabla.php");
+	     include("../includes/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM usuarios_ WHERE autor='$SelectImagen_1'";
 			 $resultado = $conexion_tabla->query($query);
@@ -93,7 +93,7 @@
       
         <?php
 	     $SelectImagen_1 = $_GET['colaborador'];
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 $query = "SELECT * FROM series";
 		 $resultado = $conexion_tabla->query($query);
 		 

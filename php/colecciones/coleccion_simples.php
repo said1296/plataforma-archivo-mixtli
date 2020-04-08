@@ -6,7 +6,7 @@
   <?php
 	    $SelectImagen_1 = $_GET['coleccion'];
 			 
-	     include("conexion_tabla.php");
+	     include("../includes/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM colecciones";
 	     $resultado = $conexion_tabla->query($query);
@@ -94,7 +94,7 @@
        
         <?php
 	     $SelectImagen_1 = $_GET['coleccion'];
-		 include("conexion_tabla.php");
+		 include("../includes/conexion_tabla.php");
 		 $query = "SELECT * FROM colecciones";
 	     $resultado = $conexion_tabla->query($query);
 		 while($row = $resultado->fetch_assoc()){

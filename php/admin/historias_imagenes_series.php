@@ -2,7 +2,7 @@
   session_start();
   
   include("conexion_usuario.php");
-  include("conexion_tabla.php");
+  include("../includes/conexion_tabla.php");
   
   if(isset($_SESSION['u_usuario'])){
 	  $usuario = $_SESSION['u_usuario'];

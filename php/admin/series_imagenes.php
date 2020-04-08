@@ -33,7 +33,7 @@
       $serie = $_GET['serie'];
       $paginaSeries=$_GET['pagina_series'];
          
-      include("conexion_tabla.php");
+      include("../includes/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);

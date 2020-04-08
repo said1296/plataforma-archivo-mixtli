@@ -2,7 +2,7 @@
   session_start();
   
   include("conexion_usuario.php");
-  include("conexion_tabla.php");
+  include("../includes/conexion_tabla.php");
   
   if(isset($_SESSION['u_usuario'])){
 	  $usuario=$_SESSION['u_usuario'];
@@ -347,7 +347,7 @@
       
         <?php
 	    $id_historia = $_GET['id_historia'];
-		 	include("conexion_tabla.php");
+		 	include("../includes/conexion_tabla.php");
 			$query = "SELECT * FROM series";
 		 	$resultado = $conexion_tabla->query($query);
 		 

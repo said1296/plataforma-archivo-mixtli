@@ -98,7 +98,7 @@
 					}
 		 
 		 
-					include("conexion_tabla.php");
+					include("../includes/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -247,7 +247,7 @@
 					$consulta = $_REQUEST['consulta'];
 					$columns_query = [];
 		 
-					include("conexion_tabla.php");
+					include("../includes/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";

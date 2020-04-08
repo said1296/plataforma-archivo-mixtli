@@ -1,6 +1,6 @@
 <?php
 	
-    include("conexion_tabla.php");
+    include("../includes/conexion_tabla.php");
     
     $DescripcionID = $_REQUEST['DescripcionID'];
         
