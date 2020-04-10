@@ -13,7 +13,7 @@
   
   <title>Búsqueda | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -26,7 +26,7 @@
   </div>
   
 	<?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -78,7 +78,7 @@
 					}
 		 
 		 
-					include("../includes/conexion_tabla.php");
+					include("../zUtils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -226,7 +226,7 @@
 					$consulta = $_REQUEST['consulta'];
 					$columns_query = [];
 		 
-					include("../includes/conexion_tabla.php");
+					include("../zUtils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -263,7 +263,7 @@
 					$empieza = ($pagina-1) * $por_Pagina;
 
 					//Contar total de resultados para dividir en páginas
-					$query = "SELECT * FROM colecciones WHERE ".implode(' OR ',$queries_palabras);
+					$query = "SELECT * FROM items WHERE ".implode(' OR ',$queries_palabras);
 					$resultado = $conexion_tabla->query($query);
 					$totalRegistros = mysqli_num_rows($resultado);
 
@@ -273,7 +273,7 @@
 									MATCH (lugar) AGAINST ('$consulta' IN BOOLEAN MODE) AS lugar_match,
 									MATCH (descriptores) AGAINST ('$consulta' IN BOOLEAN MODE) AS descriptores_match,
 									MATCH (autor) AGAINST ('$consulta' IN BOOLEAN MODE) AS autor_match
-									FROM colecciones
+									FROM items
 									WHERE MATCH(".implode(',',$columns_query).") AGAINST ('$consulta' IN BOOLEAN MODE)
 									ORDER BY (descripcion_match * 4 + lugar_match * 2 + descriptores_match * 1 + autor_match * 0.5) DESC
 									LIMIT $empieza, $por_Pagina";
@@ -285,8 +285,7 @@
 						while($row = $resultado->fetch_assoc()){
 							if($row['tipo']=='foto'){				
 				?>
-	   
-      
+
 				<div class="col-md-3 col-sm-6 col-xs-12 work-item">
 					<div class="work-container">
 						<div class="work-img">

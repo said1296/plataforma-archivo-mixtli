@@ -34,8 +34,8 @@
   <?php
 	    $id = $_REQUEST['id'];
 		
-		 include("../includes/conexion_tabla.php");
- 		 $query = "SELECT * FROM colecciones
+		 include("../zUtils/conexion_tabla.php");
+ 		 $query = "SELECT * FROM items
 					WHERE id = '$id' ";
 		 
 	     $resultado = $conexion_tabla->query($query);
@@ -52,7 +52,7 @@
   <meta property="og:url" content="http://" />
   
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -65,7 +65,7 @@
   </div>
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -347,7 +347,7 @@
     
 
    <?php
-      include("../includes/comentarios_items.php")
+      include("../zComponents/comentarios_items.php")
    ?>
     
     

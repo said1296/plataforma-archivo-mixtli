@@ -4,7 +4,7 @@
   
 
   <?php
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
     $id_historias = $_GET['id'];
     $query_historia = "SELECT * FROM historias where id='$id_historias'";
     $resultado_historia = $conexion_tabla->query($query_historia);
@@ -14,7 +14,7 @@
   
   <title> <?php echo $row_historia['titulo']  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -27,7 +27,7 @@
   </div>
   
   <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -60,7 +60,7 @@
                if($resultado->num_rows > 0){
                   while($row = $resultado->fetch_assoc()){
                      $id_colecciones = $row['id_colecciones'];
-                     $query2 = "SELECT * FROM colecciones WHERE id='$id_colecciones'";
+                     $query2 = "SELECT * FROM items WHERE id='$id_colecciones'";
                      $resultado2 = $conexion_tabla->query($query2);
                      $row2 = $resultado2->fetch_assoc();
                

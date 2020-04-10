@@ -114,7 +114,7 @@ class BobDemo {
     public function showAllColecciones2() {
         $sql = "SELECT id, id_origen, id_asignado, coleccion, autor, usuario, grupo,serie, fecha, lugar, 
                        descripcion_serie, descriptores, personajes, descripcion_img, publicacion, img 
-                FROM colecciones2;";
+                FROM items2;";
 		$stmt = $this->pdo->query($sql);
 
 		while ($row = $stmt->fetch()) {

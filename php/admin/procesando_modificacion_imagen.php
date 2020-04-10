@@ -1,6 +1,6 @@
 <?php
 	
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
 	
 	$id = $_POST['id_relacion'];
 	$posicion = $_POST['posicion'];

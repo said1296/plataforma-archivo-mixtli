@@ -1,5 +1,5 @@
 <?php
-include("../includes/conexion_tabla.php");
+include("../zUtils/conexion_tabla.php");
 $tipo=$_GET['tipo'];
 
 if($tipo=="colecciones"){

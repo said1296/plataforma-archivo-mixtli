@@ -1,27 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-     $usuario = $_SESSION['u_usuario'];
-     $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-     $resultado = mysqli_fetch_array($proceso);
-	
-		if($resultado){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-    		}
-      }else{
-         header ("Location: index.php");
-      }
-   }else{
-      header ("Location: index.php");
-   }
-				   
+session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 
@@ -31,7 +12,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Imágenes | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -44,7 +25,7 @@
   </div>
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -55,7 +36,7 @@
 	 <div class="title-holder">
 	  <div class="title-text">
       <?php
-      include("../includes/conexion_tabla.php");
+      include("../zUtils/conexion_tabla.php");
 
       $id_historia = $_GET['id_historia'];
 
@@ -132,7 +113,7 @@
 
                 $id_colecciones = $row['id_colecciones'];
 
-                $query2 = "SELECT * FROM colecciones WHERE id='$id_colecciones'";
+                $query2 = "SELECT * FROM items WHERE id='$id_colecciones'";
                 $resultado2 = $conexion_tabla->query($query2);
                 $row2 = $resultado2->fetch_assoc();
 

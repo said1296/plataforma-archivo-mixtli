@@ -5,7 +5,7 @@
       header("Location: index.php");
    }
 
-   include("../includes/conexion_tabla.php");
+   include("../zUtils/conexion_tabla.php");
 ?>
 
 
@@ -16,7 +16,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
    <title>Subir series a tu colección | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
 </head>
 
@@ -29,7 +29,7 @@
    </div>
 
    <?php
-      include('../includes/header.php')
+      include('../zComponents/header.php')
    ?>
 
 
@@ -40,18 +40,7 @@
          <div class="container relative clearfix">
             <div class="title-holder">
                <div class="title-text">
-                  <h1 class="uppercase">Colección</h1>
-                  <ol class="breadcrumb">
-                     <li>
-                        <a>
-                           <?php
-                           echo "<br>Bienvenido\n<br>";
-                           echo $row['nombre'];
-                           echo "&nbsp;".$_SESSION['u_usuario'];
-                           ?>
-                        </a>
-                     </li>
-                  </ol>
+                  <h1 class="uppercase"><?php echo $_SESSION['u_usuario'] ?></h1>
                </div>
             </div>
          </div>
@@ -63,23 +52,11 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <a href="definir_serie.php" class="btn btn-md btn-stroke">Agregar nueva serie</a>
-               </div>
-               <div class="col-sm-6 text-right">
-                  <a href="cerrar_sesion.php" class="btn btn-md btn-dark">
-                     <?php echo "Salir";
-                     ?>
-                  </a>
+                  <a href="../upload/añadir_serie.php" class="btn btn-md btn-black mb-20">Agregar nueva serie</a>
                </div>
             </div>
             <br />
-            <div class="bg-light">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <h3 class="mb-0">&nbsp;&nbsp; Colección del usuario <?php echo "&nbsp;" . $_SESSION['u_usuario']; ?> </h3>
-                  </div>
-               </div>
-            </div>
+
 
             <div class="container">
                <div class="row">
@@ -121,34 +98,36 @@
                         $empieza = ($pagina - 1) * $por_Pagina;
 
                         //contar total de registros
-                        $query = "SELECT COUNT(*) as total FROM series WHERE usuario='$_SESSION[u_usuario]'";
+                        $query = "SELECT COUNT(*) as total FROM series 
+                                    LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
+                                    WHERE usuarios_.id='$_SESSION[id]'";
                         $resultado = $conexion_tabla->query($query);
                         $data = $resultado->fetch_assoc();
                         $totalRegistros = $data['total'];
 
                         //seleccionar los registros de la tabla gestion_imagen con LIMIT
-                        $query = "SELECT * FROM series WHERE usuario='$_SESSION[u_usuario]' LIMIT $empieza, $por_Pagina ";
+                        $query = "SELECT series.* FROM series 
+                                    LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
+                                    WHERE usuarios_.id='$_SESSION[id]' LIMIT $empieza, $por_Pagina ";
 
                         //$resultado = mysqli_query($conexion_tabla, $query);
                         //$query = "SELECT * FROM gestion_imagen";
                         $resultado = $conexion_tabla->query($query);
                         while ($row = $resultado->fetch_assoc()) {
-
-
+                           $idSerie=$row['id'];
                         ?>
 
                            <tr>
                               <td class="col-md-2"> <?php echo $row['serie']; ?></td>
-                              <td class="col-md-2" style=" width:120px; height:100px"> <img height="100px" width="120px" src="data:image/jpg;base64,<?php echo base64_encode($row['imgSerie']);  ?>" /> <br /><br /></td>
+                              <td class="col-md-2" style=" width:120px; height:100px"> <img height="100px" width="120px" src="../../uploads/<?php echo implode("/", [$_SESSION['id'], $idSerie, 0]) ?>.jpg" /> <br /><br /></td>
                               <td class="col-md-1"> <?php echo $row['grupo']; ?></td>
                               <td class="col-md-3"> <?php echo $row['descripcion_serie']; ?></td>
-                              <td class="col-md-1"> <a href="alimentar_serie.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-dark"> Alimentar serie </a> </td>
-                              <td class="col-md-1"> <a href="ver_serie.php?serie=<?php echo $row['serie']; ?>" class="btn btn-sm btn-red">Ver serie</a></td>
+                              <td class="col-md-1"> <a href="../upload/añadir_item.php?idSerie=<?php echo $row['id']; ?>" class="btn btn-sm btn-dark">Añadir a serie</a> </td>
+                              <td class="col-md-1"> <a href="../colecciones/serie.php?idSerie=<?php echo $row['id']; ?>" class="btn btn-sm btn-red">Ver serie</a></td>
                            </tr>
 
                         <?php
-                           // end while;
-                        }
+                        } // end while;
                         ?>
 
                      </tbody>

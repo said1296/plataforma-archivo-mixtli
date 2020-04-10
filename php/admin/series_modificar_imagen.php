@@ -1,26 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-     $usuario = $_SESSION['u_usuario'];
-     $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-     $resultado = mysqli_fetch_array($proceso);
-	
-		if($resultado){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-    		}
-      }else{
-         header ("Location: index.php");
-      }
-   }else{
-      header ("Location: index.php");
-   }		   
+	session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 
@@ -35,7 +17,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
  
   <?php
-    include("../includes/head.php")
+    include("../zComponents/head.php")
   ?>
 
   <link rel="stylesheet" href="../../themes/css/core.min.css" />
@@ -58,13 +40,13 @@
 </head>
 
 <?php
-  include("../includes/header.php")
+  include("../zComponents/header.php")
 ?>
 
 <body>
 
     <?php
-        include("../includes/conexion_tabla.php");
+        include("../zUtils/conexion_tabla.php");
         
         $serie = $_GET['serie'];
         
@@ -90,7 +72,7 @@
         $id = $_GET['id'];
         $pagina = $_GET["pagina"];
         
-        $query = "SELECT * FROM colecciones WHERE id = '$id'";
+        $query = "SELECT * FROM items WHERE id = '$id'";
         $resultado = $conexion_tabla->query($query);
         $row = $resultado->fetch_assoc();
             

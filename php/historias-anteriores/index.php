@@ -12,7 +12,7 @@
   
   <title>Grupo <?php echo $SelectGrupo  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
 		<?php
-			include("../includes/head.php");
+			include("../zComponents/head.php");
 		?>
  </head>
   
@@ -25,7 +25,7 @@
   </div>
   
 	<?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -79,7 +79,7 @@
       
         <?php
 	     $SelectGrupo = $_GET['grupo'];
-		 include("../includes/conexion_tabla.php");
+		 include("../zUtils/conexion_tabla.php");
 		 $query = "SELECT * FROM historias";
 		 $resultado = $conexion_tabla->query($query);
 		 
@@ -96,7 +96,7 @@
 
 			$id_colecciones = $row2['id_colecciones'];
 			
-			$query2 = "SELECT * FROM colecciones WHERE id='$id_colecciones'";
+			$query2 = "SELECT * FROM items WHERE id='$id_colecciones'";
 			$resultado2 = $conexion_tabla->query($query2);
 			$row2 = $resultado2->fetch_assoc();
 

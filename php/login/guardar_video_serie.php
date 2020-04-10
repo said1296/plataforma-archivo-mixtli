@@ -1,7 +1,7 @@
 <?php
 	session_start();
   
- 	include("../includes/conexion_tabla.php");
+ 	include("../zUtils/conexion_tabla.php");
 	
 	$coleccion = $_POST['coleccion'];
 	echo $coleccion;
@@ -24,7 +24,7 @@
     $resultado = $conexion_tabla->query($query);
 
 	if(mysqli_num_rows($resultado)>0){
-		$query = "INSERT INTO colecciones (coleccion,autor,usuario,grupo,serie,descripcion_serie,fecha,lugar,descripcion_img,descriptores,personajes,link, tipo) VALUES('$coleccion','$autor','$usuario','$grupo','$serie','$descripcion_serie','$fecha','$lugar','$descripcion_img','$descriptores','$personajes','$link', '$tipo')";
+		$query = "INSERT INTO items (coleccion,autor,usuario,grupo,serie,descripcion_serie,fecha,lugar,descripcion_img,descriptores,personajes,link, tipo) VALUES('$coleccion','$autor','$usuario','$grupo','$serie','$descripcion_serie','$fecha','$lugar','$descripcion_img','$descriptores','$personajes','$link', '$tipo')";
 		$resultado = $conexion_tabla->query($query);
 		echo "si entró";
 	}

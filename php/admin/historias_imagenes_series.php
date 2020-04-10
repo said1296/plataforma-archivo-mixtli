@@ -1,29 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  include("../includes/conexion_tabla.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-	  $usuario = $_SESSION['u_usuario'];
-	  $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-	
-		if($resultado = mysqli_fetch_array($proceso)){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-      			$usuario = $resultado;
-    		}
-		}else{
-			header ("Location: index.php");
-		}
-  
-  }
-   else{
-		header ("Location: index.php");
-   }
-				   
+	session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -32,7 +11,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Agregar imagen | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
 	
   <link rel="stylesheet" href="../../themes/css/misc.css" />
@@ -47,7 +26,7 @@
   </div>
   
 <?php
-   include('../includes/header.php')
+   include('../zComponents/header.php')
 ?>
   
   <!--- WRAPP --->

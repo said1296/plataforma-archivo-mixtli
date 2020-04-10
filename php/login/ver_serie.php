@@ -33,7 +33,7 @@
   <?php
       $serie = $_GET['serie'];
          
-      include("../includes/conexion_tabla.php");
+      include("../zUtils/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);
@@ -49,7 +49,7 @@
   <meta property="og:url" content="http://" />
 
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -58,7 +58,7 @@
 
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -98,9 +98,9 @@
             <div id="portfolio-container" class="works-grid small-gutter with-title">
                
                <?php
-               include("../includes/conexion_tabla.php");
+               include("../zUtils/conexion_tabla.php");
                
-               $query = "SELECT * FROM colecciones WHERE serie='$serie'";
+               $query = "SELECT * FROM items WHERE serie='$serie'";
                
                $resultado = $conexion_tabla->query($query);
                while($row = $resultado->fetch_assoc()){
@@ -156,7 +156,7 @@
       
    
          <?php
-            include("../includes/comentarios_series.php")
+            include("../zComponents/comentarios_series.php")
          ?>
       
    </section>

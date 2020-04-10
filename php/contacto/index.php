@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Contacto | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -17,7 +17,7 @@
   </div>
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <div class="main-wrapper oh">

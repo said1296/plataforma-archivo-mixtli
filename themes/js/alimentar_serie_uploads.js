@@ -66,7 +66,8 @@ var imagePush = function(k, files){
                 let ob = {
                     created: new Date(),
                     id_serie: window.location.search.substr(1).split("=")[1],
-                    data: bits
+                    data: bits,
+                    filename: files[k].name
                 }
         
                 let trans = db.transaction(["images"], "readwrite");
@@ -81,7 +82,7 @@ var imagePush = function(k, files){
                     console.log("Data stored ");
                     console.log(files.length-1,k);
                     if(k==(files.length-1)){
-                        window.location = "alimentar_imagen.php?id=" + window.location.search.substr(1).split("=")[1];
+                        window.location = "detallar_item.php?idSerie=" + window.location.search.substr(1).split("=")[1];
                     }
                     resolve("se subio");
                 }
@@ -114,7 +115,7 @@ function imageDelete(){
                 datosCount = request_count.result;
                 console.log(datosCount);
                 if(datosCount>0){
-                    window.location="alimentar_imagen.php?id=" + cursor.value.id_serie;
+                    window.location="detallar_item.php?idSerie=" + cursor.value.id_serie;
                 }else{
                     window.location="sesion.php";
                 }
@@ -136,6 +137,7 @@ function imageShow(image){
         if (record){
             image.src = record.data;
             document.getElementById("img").value = record.data;
+            document.getElementById("filename").value = record.filename;
         }else{
             return null;
         }

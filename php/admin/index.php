@@ -1,33 +1,10 @@
-<?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-     $usuario = $_SESSION['u_usuario'];
-     $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-     $resultado = mysqli_fetch_array($proceso);
-	
-		if($resultado){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-               header ("Location: apartados.php");
-    		}
-      }
-   }
-				   
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Administradores | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -40,7 +17,7 @@
   </div>
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <div class="main-wrapper oh">

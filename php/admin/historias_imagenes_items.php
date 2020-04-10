@@ -1,24 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-	  $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario' AND contrasena='$contrasena'");
-	
-		if($resultado = mysqli_fetch_array($proceso)){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-    		}
-      }
-   }
-   else{
-		header ("Location: index.php");
-   }
-				   
+session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,7 +14,7 @@
       $serie = $_GET['serie'];
       $paginaSeries=$_GET['pagina_series'];
          
-      include("../includes/conexion_tabla.php");
+      include("../zUtils/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);
@@ -46,7 +30,7 @@
   <meta property="og:url" content="http://" />
 
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -55,7 +39,7 @@
 
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -114,12 +98,12 @@
 					$empieza = ($pagina-1) * $por_Pagina;
 
 					//Contar total de resultados para dividir en páginas
-					$query = "SELECT * FROM colecciones WHERE serie='$serie'";
+					$query = "SELECT * FROM items WHERE serie='$serie'";
 					$resultado = $conexion_tabla->query($query);
 					$totalRegistros = mysqli_num_rows($resultado);
 
 					//Seleccionar registros a buscar en la página actual
-					$query = "SELECT * FROM colecciones WHERE serie='$serie' LIMIT $empieza, $por_Pagina";
+					$query = "SELECT * FROM items WHERE serie='$serie' LIMIT $empieza, $por_Pagina";
                
                $resultado = $conexion_tabla->query($query);
                while($row = $resultado->fetch_assoc()){
@@ -237,7 +221,7 @@
       
    
          <?php
-            include("../includes/comentarios_series.php")
+            include("../zComponents/comentarios_series.php")
          ?>
       
    </section>

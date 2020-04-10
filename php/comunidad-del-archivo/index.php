@@ -14,7 +14,7 @@ function mostrar($str){
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Comunidad del archivo | Preservación Digital Comunitaria</title>
 	<?php
-		include("../includes/head.php");
+		include("../zComponents/head.php");
 	?>
  </head>
   
@@ -27,7 +27,7 @@ function mostrar($str){
   </div>
   
 	<?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -68,7 +68,7 @@ function mostrar($str){
         
         <?php
 	     
-		 include("../includes/conexion_tabla.php");
+		 include("../zUtils/conexion_tabla.php");
 		 //include_once 'fotografias.php';
 		 
 		 // cantidad de registros por pagina

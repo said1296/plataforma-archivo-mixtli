@@ -1,6 +1,6 @@
 <?php
 	
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
 	
     $serie = $_REQUEST['serie'];
     $id = $_REQUEST['id'];
@@ -9,7 +9,7 @@
     
 
     
-	$query = "DELETE FROM colecciones WHERE id = '$id'";
+	$query = "DELETE FROM items WHERE id = '$id'";
 	$resultado = $conexion_tabla->query($query);
 	
 	if($resultado){

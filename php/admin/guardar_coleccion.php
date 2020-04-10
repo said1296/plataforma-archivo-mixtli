@@ -4,7 +4,7 @@
  
 	
 	
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
 	
 	$autor = $_POST['autor'];
 	$usuario = $_POST['usuario'];
@@ -40,7 +40,7 @@
 	$img24 = addslashes(file_get_contents($_FILES['img24']['tmp_name']));
 	$img25 = addslashes(file_get_contents($_FILES['img25']['tmp_name']));
 	
-	$query = "INSERT INTO colecciones (autor,usuario,grupo,serie,coleccion,fecha,lugar,descripcion,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25) VALUES('$autor','$usuario','grupo','$serie','$coleccion','$fecha','$lugar','$descripcion','$img1','$img2','$img3','$img4','$img5','$img6','$img7','$img8','$img9','$img10','$img11','$img12','$img13','$img14','$img15','$img16','$img17','$img18','$img19','$img20','$img21','$img22','$img23','$img24','$img25')";
+	$query = "INSERT INTO items (autor,usuario,grupo,serie,coleccion,fecha,lugar,descripcion,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25) VALUES('$autor','$usuario','grupo','$serie','$coleccion','$fecha','$lugar','$descripcion','$img1','$img2','$img3','$img4','$img5','$img6','$img7','$img8','$img9','$img10','$img11','$img12','$img13','$img14','$img15','$img16','$img17','$img18','$img19','$img20','$img21','$img22','$img23','$img24','$img25')";
 	$resultado = $conexion_tabla->query($query);
 	
 	if($resultado){

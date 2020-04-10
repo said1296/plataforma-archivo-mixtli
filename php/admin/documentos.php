@@ -1,29 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-	  $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario' AND contrasena='$contrasena'");
-	
-		if($resultado = mysqli_fetch_array($proceso)){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-      			$usuario = $resultado;
-    		}
-		}
-	  
-	  
-  // echo "sesión exitosa";
-  // echo "<a href='cerrar_sesion.php'>Cerrar Sesión</a> ";
-  
-  }
-   else{
-		header ("Location: index.php");
-   }
-				   
+session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 
@@ -33,7 +12,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Documentos | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -46,7 +25,7 @@
   </div>
   
   <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -100,7 +79,7 @@
        </thead> 
        
        <?php
-		  include("../includes/conexion_tabla.php");
+		  include("../zUtils/conexion_tabla.php");
 		  //include_once 'fotografias.php';
 		 
 		  // cantidad de registros por pagina

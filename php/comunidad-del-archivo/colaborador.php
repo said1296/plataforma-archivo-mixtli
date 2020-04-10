@@ -5,7 +5,7 @@
   <?php
 	    $SelectImagen_1 = $_GET['colaborador'];
 			 
-	     include("../includes/conexion_tabla.php");
+	     include("../zUtils/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM usuarios_ WHERE autor='$SelectImagen_1'";
 			 $resultado = $conexion_tabla->query($query);
@@ -19,7 +19,7 @@
   
   <title>Colaborador <?php echo $row['autor']; ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -34,7 +34,7 @@
 -->
   
   <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -93,7 +93,7 @@
       
         <?php
 	     $SelectImagen_1 = $_GET['colaborador'];
-		 include("../includes/conexion_tabla.php");
+		 include("../zUtils/conexion_tabla.php");
 		 $query = "SELECT * FROM series";
 		 $resultado = $conexion_tabla->query($query);
 		 

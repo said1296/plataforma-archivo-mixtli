@@ -1,28 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-	  $proceso = $conexionUsuario->query(" SELECT * FROM usuarios_ WHERE usuario='$usuario' AND contrasena='$contrasena'");
-	
-		if($resultado = mysqli_fetch_array($proceso)){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-      			$usuario = $resultado;
-    		}
-		}
-	  
-	  
-  // echo "sesión exitosa";
-  // echo "<a href='cerrar_sesion.php'>Cerrar Sesión</a> ";
-  
-  }else{
-		header ("Location: index.php");
+	session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
 }
-				   
 ?>
 
 
@@ -32,7 +12,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Subir colecciones | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -175,7 +155,7 @@
        </thead> 
        
        <?php
-		  include("../includes/conexion_tabla.php");
+		  include("../zUtils/conexion_tabla.php");
 		  //include_once 'fotografias.php';
 		 
 		  // cantidad de registros por pagina
@@ -191,7 +171,7 @@
 		  $empieza = ($pagina - 1) * $por_Pagina;
 		  
 		  //seleccionar los registros de la tabla gestion_imagen con LIMIT
-		  $query = "SELECT * FROM colecciones WHERE autor='$_SESSION[u_usuario]' LIMIT $empieza, $por_Pagina ";
+		  $query = "SELECT * FROM items WHERE autor='$_SESSION[u_usuario]' LIMIT $empieza, $por_Pagina ";
 		  
 		  //$resultado = mysqli_query($conexion_tabla, $query);
 		  //$query = "SELECT * FROM gestion_imagen";
@@ -206,7 +186,7 @@
         <td class="col-md-2" style=" width:120px; height:100px"> <img height="100px" width="120px" src="data:image/jpg;base64,<?php echo base64_encode($row['img1']);  ?>"/> <br /><br /></td>
         <td class="col-md-1"> <?php echo $row['lugar']; ?></td>
         <td class="col-md-3"> <?php echo $row['descripcion']; ?></td>
-        <td class="col-md-1"> <a href="modificar_imagen.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-dark"> Modificar </a> </td>
+        <td class="col-md-1"> <a href="modificar_imagen.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-dark">Modificar</a> </td>
         <td class="col-md-1"> <a href="eliminar_registro.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-red">Eliminar</a></td>
        </tr>
        

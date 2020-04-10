@@ -1,27 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-     $usuario = $_SESSION['u_usuario'];
-     $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-     $resultado = mysqli_fetch_array($proceso);
-	
-		if($resultado){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-    		}
-      }else{
-         header ("Location: index.php");
-      }
-   }else{
-      header ("Location: index.php");
-   }
-				   
+	session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -39,7 +20,7 @@
   
   <title>Búsqueda | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -52,7 +33,7 @@
   </div>
   
 	<?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -98,7 +79,7 @@
 					}
 		 
 		 
-					include("../includes/conexion_tabla.php");
+					include("../zUtils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -247,7 +228,7 @@
 					$consulta = $_REQUEST['consulta'];
 					$columns_query = [];
 		 
-					include("../includes/conexion_tabla.php");
+					include("../zUtils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -284,17 +265,17 @@
 					$empieza = ($pagina-1) * $por_Pagina;
 
 					//Contar total de resultados para dividir en páginas
-					$query = "SELECT * FROM colecciones WHERE ".implode(' OR ',$queries_palabras);
+					$query = "SELECT * FROM items WHERE ".implode(' OR ',$queries_palabras);
 					$resultado = $conexion_tabla->query($query);
 					$totalRegistros = mysqli_num_rows($resultado);
 
 					//Seleccionar registros a buscar en la página actual
-					$query = "SELECT colecciones.*,
+					$query = "SELECT items.*,
 								MATCH (descripcion_img) AGAINST ('$consulta' IN BOOLEAN MODE) AS descripcion_match,
 								MATCH (lugar) AGAINST ('$consulta' IN BOOLEAN MODE) AS lugar_match,
 								MATCH (descriptores) AGAINST ('$consulta' IN BOOLEAN MODE) AS descriptores_match,
 								MATCH (autor) AGAINST ('$consulta' IN BOOLEAN MODE) AS autor_match
-								FROM colecciones
+								FROM items
 								WHERE MATCH(".implode(',',$columns_query).") AGAINST ('$consulta' IN BOOLEAN MODE)
 								ORDER BY (descripcion_match * 4 + lugar_match * 2 + descriptores_match * 1 + autor_match * 0.5) DESC
 								LIMIT $empieza, $por_Pagina";

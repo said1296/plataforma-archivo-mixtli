@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
 
 	$tipo=$_GET['tipo'];
 	$id = $_GET['id'];
@@ -11,34 +11,34 @@
 		$descriptores_nuevos = $_GET['descriptores'];
 		unset($queryArray['descriptores']);
 		
-		$query = "SELECT descriptores AS 'descriptores' FROM colecciones WHERE id='$id'";
+		$query = "SELECT descriptores AS 'descriptores' FROM items WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 		$row = mysqli_fetch_array($resultado);
 		$descriptores = $row['descriptores'].",".$descriptores_nuevos;
 	
-		$query = "UPDATE colecciones SET descriptores='$descriptores' WHERE id='$id'";
+		$query = "UPDATE items SET descriptores='$descriptores' WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 	}elseif($tipo=="personajes"){
 		$personajes_nuevos = $_GET['personajes'];
 		unset($queryArray['personajes']);
 		
-		$query = "SELECT personajes AS 'personajes' FROM colecciones WHERE id='$id'";
+		$query = "SELECT personajes AS 'personajes' FROM items WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 		$row = mysqli_fetch_array($resultado);
 		$personajes = $row['personajes'].",".$personajes_nuevos;
 	
-		$query = "UPDATE colecciones SET personajes='$personajes' WHERE id='$id'";
+		$query = "UPDATE items SET personajes='$personajes' WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 	}elseif($tipo=="lugares"){
 		$lugares_nuevos = $_GET['lugares'];
 		unset($queryArray['lugares']);
 		
-		$query = "SELECT lugar AS 'lugares' FROM colecciones WHERE id='$id'";
+		$query = "SELECT lugar AS 'lugares' FROM items WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 		$row = mysqli_fetch_array($resultado);
 		$lugares = $row['lugares'].",".$lugares_nuevos;
 	
-		$query = "UPDATE colecciones SET lugar='$lugares' WHERE id='$id'";
+		$query = "UPDATE items SET lugar='$lugares' WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 	}elseif($tipo=="descripcion"){
 		$Descripcion = $_GET['descripcion'];

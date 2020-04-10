@@ -1,28 +1,8 @@
 <?php
-  session_start();
-  
-  include("conexion_usuario.php");
-  
-  if(isset($_SESSION['u_usuario'])){
-     $usuario = $_SESSION['u_usuario'];
-     $proceso = $conexionUsuario->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario'");
-     $resultado = mysqli_fetch_array($proceso);
-	
-		if($resultado){
-			$_SESSION['u_usuario'] = $usuario;
-			$usuario = null;
-
-    		if (count($resultado) > 0) {
-               $usuario = $resultado;
-               $admin=1;
-    		}
-      }else{
-         header ("Location: index.php");
-      }
-   }else{
-      header ("Location: index.php");
-   }
-				   
+	session_start();
+if($_SESSION['tipo']!=1){
+    header ("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,8 +15,8 @@
    $serie = $_REQUEST['serie'];
    $pagina = $_REQUEST['pagina'];
 
-   include("../includes/conexion_tabla.php");
-   $query = "SELECT * FROM colecciones
+   include("../zUtils/conexion_tabla.php");
+   $query = "SELECT * FROM items
          WHERE id = '$id'";
    $resultado = $conexion_tabla->query($query);
    $row = $resultado->fetch_assoc();
@@ -52,7 +32,7 @@
   <meta property="og:url" content="http://" />
 
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -65,7 +45,7 @@
   </div>
   
    <?php
-		include('../includes/header.php')
+		include('../zComponents/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -276,7 +256,7 @@
     
     
     <?php
-        include("../includes/comentarios_items.php");
+        include("../zComponents/comentarios_items.php");
     ?>
     
     

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Acerca del proyecto | Preservación Digital Comunitaria</title>
    <?php
-      include("../includes/head.php");
+      include("../zComponents/head.php");
    ?>
  </head>
   
@@ -18,7 +18,7 @@
 -->
   
 <?php
-	include("../includes/header.php")
+	include("../zComponents/header.php")
 ?>
   
   <!--- WRAPP --->
@@ -52,7 +52,7 @@
 	    <h2 class="bottom-line text-center">Descripción del proyecto</h2>
 			<p class="text-justify">
 				<?php
-						include("../includes/conexion_tabla.php");
+						include("../zUtils/conexion_tabla.php");
 						$query = "SELECT * FROM proyecto WHERE campo='descripcion'";
 						$resultado = $conexion_tabla->query($query);
 						$row = $resultado->fetch_assoc();

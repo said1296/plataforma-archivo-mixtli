@@ -1,6 +1,6 @@
 <?php
 	
-	include("../includes/conexion_tabla.php");
+	include("../zUtils/conexion_tabla.php");
 	
 	$id = $_REQUEST['id'];
 	
