@@ -13,9 +13,9 @@
     $id = $_REQUEST['id'];
 
     include("../zUtils/conexion_tabla.php");
-    $query = "SELECT * FROM items
+    $query = "SELECT items.*, series.serie, series.grupo, usuarios_.autor FROM items
                 LEFT JOIN usuarios_ ON items.idUsuario=usuarios_.id
-                LEFT JOIN series ON series.idUsuario=series.idUsuario
+                LEFT JOIN series ON items.idSerie=series.id
                 WHERE items.id = '$id'
                 LIMIT 1";
 
@@ -46,7 +46,7 @@
     $idSerie = $row['idSerie'];
     $titleSmall = "Colección";
     $titleBig = $row['coleccion'];
-    $ids=[$idUsuario, $idSerie, $id];
+    $ids=[$idUsuario, $idSerie, 0];
     include('../zComponents/banner.php');
     ?>
 
@@ -56,7 +56,7 @@
 
                 <div class="col-sm-6" style="font-size:16px;">
                     <h2 class="heading relative heading-small uppercase bottom-line style-2 left-align mb-0"><?php echo $row['coleccion']; ?></h2>
-                    <?php echo $row['descripcion_serie']; ?> <br /><br />
+                    <?php echo $row['descripcion_img']; ?> <br /><br />
 
                     <i class="bg-success text-success">&nbsp;ID: &nbsp;</i>
                     <?php echo $row['id']; ?> <br />

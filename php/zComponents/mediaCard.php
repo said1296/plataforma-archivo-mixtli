@@ -6,6 +6,9 @@
         //     $buttons['Modificar']='/php/upload/modificar_serie.php?'.'idSerie='.$row['id'];
         //     $buttons['Eliminar']='/php/zActions/eliminar_serie.php?'.'idSerie='.$row['id'];
         // }
+    }
+    elseif($ref=='historia'){
+        $buttons['Leer']='/php/historias/ver_historia.php?idHistoria='.$row['id'];
     }else{
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
         // if($_SESSION['tipo']==1){
@@ -23,7 +26,7 @@
         <div class="work-img">
             <?php
             if ($tipo=='foto') {
-                echo '<img src="/uploads/' . $idUsuario . '/' . $idSerie . '/' . $id . '.jpg" alt="">';
+                echo '<img src="/uploads/' . implode("/", $ids) . '.jpg" alt="">';
             } elseif ($tipo=="video") {
                 $url = $row['link'];
                 if (strpos($url, "youtube")) {
@@ -62,7 +65,7 @@
             </div>
         </div>
         <div class="work-description">
-            <h2><a href="<?php echo $href; ?>"><?php echo $descripcion; ?></a></h2>
+            <h2><a href="<?php echo reset($buttons); ?>"><?php echo $descripcion; ?></a></h2>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
     session_start();
     $idSerie=$_GET['idSerie'];
     include('../zUtils/conexion_tabla.php');
-    $query = "SELECT * FROM series 
+    $query = "SELECT series.*, usuarios_.autor FROM series 
                 LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
                 WHERE series.id='$idSerie'";
     $resultado = $conexion_tabla->query($query);
@@ -75,12 +75,9 @@
 
                     $resultado = $conexion_tabla->query($query);
                     while ($row = $resultado->fetch_assoc()) {
-                        $tipo=$row['tipo'];
-                        $idSerie=$row['idSerie'];
-                        $idUsuario=$row['idUsuario'];
-                        $id=$row['id'];
+                        $ids=[$row['idUsuario'], $row['idSerie'], $row['id']];
                         $descripcion=$row['descripcion_img'];
-                        $href="detalles.php?consulta=".urlencode($_GET['consulta'])."&id=".$id;
+                        $tipo=$row['tipo'];
                         include('../zComponents/mediaCard.php');	
                     }
                     ?>

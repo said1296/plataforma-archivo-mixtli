@@ -110,9 +110,7 @@
 
                             while ($row = $resultado->fetch_assoc()) {
                                 $tipo='foto';
-                                $idSerie=$row['id'];
-                                $idUsuario=$row['idUsuario'];
-                                $id=0;
+                                $ids=[$row['idUsuario'], $row['id'], 0];
                                 $descripcion=$row['serie'];
                                 $href='../colecciones/serie.php?idSerie='.$idSerie;
                                 $buttons['Explorar']='../colecciones/serie.php?idSerie='.$idSerie;

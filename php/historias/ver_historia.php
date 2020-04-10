@@ -1,3 +1,11 @@
+<?php
+	$idHistoria=$_GET['idHistoria'];
+	if($idHistoria==''){
+      $query_historia = "SELECT * FROM historias where mes=1";
+	}else{
+      $query_historia = "SELECT * FROM historias where id='$idHistoria'";  
+   }
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -8,7 +16,6 @@
    <?php
    include("../zUtils/conexion_tabla.php");
 
-   $query_historia = "SELECT * FROM historias where mes=1";
    $resultado_historia = $conexion_tabla->query($query_historia);
    $row_historia = $resultado_historia->fetch_assoc();
    ?>
@@ -57,27 +64,24 @@
                   <?php
                   $id_historias = $row_historia['id'];
                   $query = "SELECT * FROM historias_imgs WHERE id_historias='$id_historias' ORDER BY posicion ASC";
-                  $resultado = $conexion_tabla->query($query);
+                  $resultadoImagenes = $conexion_tabla->query($query);
 
-                  if ($resultado->num_rows > 0) {
-                     while ($rowImágenes = $resultado->fetch_assoc()) {
-                        $id_colecciones = $row['id_colecciones'];
-                        $query2 = "SELECT * FROM items WHERE id='$id_colecciones'";
-                        $resultado2 = $conexion_tabla->query($query2);
-                        $row2 = $resultado2->fetch_assoc();
+                  if ($resultadoImagenes->num_rows > 0) {
+                     while ($rowImagenes = $resultadoImagenes->fetch_assoc()) {
+                        $id_colecciones = $rowImagenes['id_colecciones'];
+                        $query = "SELECT * FROM items WHERE id='$id_colecciones'";
+                        $resultado = $conexion_tabla->query($query);
+                        $row = $resultado->fetch_assoc();
 
                         $tipo='foto';
-                        $idSerie=$row['id'];
-                        $idUsuario=$row['idUsuario'];
-                        $id=0;
-                        $descripcion=$row['descripcion_serie'];
-                        $href="detalles.php?consulta=".urlencode($_GET['consulta'])."&id=".$id;
-                        $buttons['Explorar']='../colecciones/serie.php?idSerie='.$idSerie;
-                        $ref='serie';
+                        $id=$row['id'];
+                        $ids=[$row['idUsuario'], $row['idSerie'], $id];
+                        $descripcion=$row['descripcion_img'];
+                        $href="../colecciones/detalles.php?consulta=".urlencode($_GET['consulta'])."&id=".$id;
                         include('../zComponents/mediaCard.php');
                      } //end while
                   } else {
-                     echo "Historia no definida en la base";
+                     echo "No hay imágenes para esta historia.";
                   }
 
                   ?>

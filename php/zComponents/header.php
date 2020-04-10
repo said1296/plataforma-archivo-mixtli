@@ -73,8 +73,8 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" id="dropdown-a" data-toggle="dropdown">Historias</a>
 									<ul class="dropdown-menu">
-												<li><a href="../historia-del-mes/">Historia del mes</a></li>
-												<li><a href="../historias-anteriores/">Historias anteriores</a></li>
+												<li><a href="/php/historias/ver_historia.php">Historia del mes</a></li>
+												<li><a href="/php/historias/index.php">Historias anteriores</a></li>
 									</ul>
 								</li>
 								<li> <a href="../documentos/" id="dropdown-a">Documentos</a> </li>
