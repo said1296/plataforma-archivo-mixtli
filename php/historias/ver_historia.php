@@ -23,7 +23,7 @@
 
    <title> <?php echo $row_historia['titulo']  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-   include("../zComponents/head.php");
+   include("../components/head.php");
    ?>
 </head>
 
@@ -36,7 +36,7 @@
    </div>
 
    <?php
-   include('../zComponents/header.php')
+   include('../components/header.php')
    ?>
 
    <!--- WRAPP --->
@@ -73,12 +73,12 @@
                         $resultado = $conexion_tabla->query($query);
                         $row = $resultado->fetch_assoc();
 
-                        $tipo='foto';
+                        $tipo=$row['tipo'];
                         $id=$row['id'];
                         $ids=[$row['idUsuario'], $row['idSerie'], $id];
                         $descripcion=$row['descripcion_img'];
                         $href="../colecciones/detalles.php?consulta=".urlencode($_GET['consulta'])."&id=".$id;
-                        include('../zComponents/mediaCard.php');
+                        include('../components/mediaCard.php');
                      } //end while
                   } else {
                      echo "No hay imágenes para esta historia.";

@@ -13,7 +13,7 @@
 
 	<title>Grupo <?php echo $SelectGrupo  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
 	<?php
-	include("../zComponents/head.php");
+	include("../components/head.php");
 	?>
 </head>
 
@@ -26,9 +26,9 @@
 	</div>
 
 	<?php
-	include('../zComponents/header.php');
+	include('../components/header.php');
 	$titleBig='Historias';
-	include('../zComponents/banner.php');
+	include('../components/banner.php');
 	?>
 
 		<section class="section-wrap">
@@ -64,7 +64,7 @@
 								$descripcion=$row['titulo'];
 								$ref='historia';
 								$tipo='foto';
-								include('../zComponents/mediaCard.php');
+								include('../components/mediaCard.php');
 							} //end while
 
 						} else {

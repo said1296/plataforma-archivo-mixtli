@@ -12,7 +12,7 @@ if($_SESSION['tipo']!=1){
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Historias | Preservación Digital Comunitaria</title>
    <?php
-      include("../zComponents/head.php");
+      include("../components/head.php");
    ?>
  </head>
   
@@ -25,7 +25,7 @@ if($_SESSION['tipo']!=1){
   </div>
   
     <?php
-        include('../zComponents/header.php');
+        include('../components/header.php');
         include("../zUtils/conexion_tabla.php");
 	?>
   

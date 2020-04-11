@@ -13,7 +13,7 @@
     $id = $_REQUEST['id'];
 
     include("../zUtils/conexion_tabla.php");
-    $query = "SELECT items.*, series.serie, series.grupo, usuarios_.autor FROM items
+    $query = "SELECT items.*, series.serie, series.grupo, series.coleccion, usuarios_.autor FROM items
                 LEFT JOIN usuarios_ ON items.idUsuario=usuarios_.id
                 LEFT JOIN series ON items.idSerie=series.id
                 WHERE items.id = '$id'
@@ -33,21 +33,21 @@
     <meta property="og:url" content="http://" />
 
     <?php
-    include("../zComponents/head.php");
+    include("../components/head.php");
     ?>
 </head>
 
 <body data-spy="scroll" data-offset="60" data-target=".navbar-fixed-top" style="font-family: Hind, sans-serif" class="onepage">
 
     <?php
-    include('../zComponents/header.php');
+    include('../components/header.php');
     $tipo = $row['tipo'];
     $idUsuario = $row['idUsuario'];
     $idSerie = $row['idSerie'];
     $titleSmall = "Colección";
     $titleBig = $row['coleccion'];
     $ids=[$idUsuario, $idSerie, 0];
-    include('../zComponents/banner.php');
+    include('../components/banner.php');
     ?>
 
     <section class="section-wrap">
@@ -296,7 +296,7 @@
                     </div>
 
                     <?php
-                    include("../zComponents/comentarios_items.php");
+                    include("../components/comentarios_items.php");
                     ?>
 
     </section>

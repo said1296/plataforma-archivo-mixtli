@@ -18,7 +18,7 @@ if ($_SESSION['tipo'] != 1) {
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
 
   <?php
-  include("../zComponents/head.php")
+  include("../components/head.php")
   ?>
 
   <link rel="stylesheet" href="../../themes/css/core.min.css" />
@@ -1948,7 +1948,7 @@ if ($_SESSION['tipo'] != 1) {
   $resultado = $conexion_tabla->query($query);
   $row = $resultado->fetch_assoc();
 
-  include("../zComponents/header.php");
+  include("../components/header.php");
   $tipo = 'foto';
   $idUsuario = $row['idUsuario'];
   $idSerie = $row['id'];
@@ -1956,7 +1956,7 @@ if ($_SESSION['tipo'] != 1) {
   $titleSmall = "Modificar";
   $titleBig = $row['serie'];
   $ids=[$idUsuario, $idSerie, $id];
-  include('../zComponents/banner.php');
+  include('../components/banner.php');
   ?>
 
     <section>

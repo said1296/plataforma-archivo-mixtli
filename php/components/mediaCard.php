@@ -4,7 +4,7 @@
         $buttons['Explorar']='/php/colecciones/serie.php?'.'idSerie='.$row['id'];
         // if($_SESSION['tipo']==1){
         //     $buttons['Modificar']='/php/upload/modificar_serie.php?'.'idSerie='.$row['id'];
-        //     $buttons['Eliminar']='/php/zActions/eliminar_serie.php?'.'idSerie='.$row['id'];
+        //     $buttons['Eliminar']='/php/components_actions/eliminar_serie.php?'.'idSerie='.$row['id'];
         // }
     }
     elseif($ref=='historia'){
@@ -12,7 +12,7 @@
     }else{
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
         // if($_SESSION['tipo']==1){
-        //     $buttons['Modificar']='/php/zActions/eliminar_imagen.php?';
+        //     $buttons['Modificar']='/php/components_actions/eliminar_imagen.php?';
         // }
     }
 

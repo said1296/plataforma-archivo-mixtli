@@ -21,18 +21,18 @@ $row = $resultado->fetch_assoc();
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Añadir serie | Preservación Digital</title>
   <?php
-  include("../zComponents/head.php");
+  include("../components/head.php");
   ?>
 </head>
 
 <body>
   <?php
-  include('../zComponents/header.php');
+  include('../components/header.php');
   $tipo = 'foto';
   $titleSmall = 'Añadir serie';
   $titleBig = $row['coleccion'];
   $ids = [$idUsuario, "0"];
-  include('../zComponents/banner.php');
+  include('../components/banner.php');
   ?>
   <section class="section-wrap" style="padding-top:70px;" id="register">
     <div class="container">

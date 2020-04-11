@@ -18,17 +18,17 @@ include('../includes/conexion_tabla');
 
 	<title>Búsqueda | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
 	<?php
-	include("../zComponents/head.php");
+	include("../components/head.php");
 	?>
 </head>
 
 <body data-spy="scroll" data-offset="60" data-target=".navbar-fixed-top" style="font-family: Hind, sans-serif" class="onepage">
 
 	<?php
-	include('../zComponents/header.php');
+	include('../components/header.php');
 	$titleSmall = 'Búsqueda';
 	$titleBig = $consulta;
-	include('../zComponents/banner.php');
+	include('../components/banner.php');
 	?>
 
 	<section class="section-wrap" style='padding-top:70px;'>
@@ -117,7 +117,7 @@ include('../includes/conexion_tabla');
 								$descripcion = $row['serie'];
 								$buttons['Explorar'] = '../colecciones/serie.php?idSerie=' . $idSerie;
 								$ref = 'serie';
-								include('../zComponents/mediaCard.php');
+								include('../components/mediaCard.php');
 							} //end WHILE
 						} else {
 							echo "<div class='col-md-3 col-sm-6 col-xs-12 work-item'>No hay series con " . $consulta . ". </div><br><br>";
@@ -230,7 +230,7 @@ include('../includes/conexion_tabla');
 							$ids = [$row['idUsuario'], $row['idSerie'], $row['id']];
 							$descripcion = $row['descripcion_img'];
 							$href = "detalles.php?consulta=" . urlencode($_GET['consulta']) . "&id=" . $id;
-							include('../zComponents/mediaCard.php');
+							include('../components/mediaCard.php');
 						} //end WHILE
 					} else {
 						echo "No hay elementos con " . $consulta . ". <br><br>";

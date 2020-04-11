@@ -72,7 +72,7 @@
    function postComentario(e){
       e.preventDefault();
       $.ajax({
-         url: '../zActions/crear_comentario_item.php',
+         url: '../components_actions/crear_comentario_item.php',
          type: 'POST',
          data: {
             ItemID: e.target[0].value,
@@ -88,7 +88,7 @@
    function borrarComentario(e){
       e.preventDefault();
       $.ajax({
-         url: '../zActions/eliminar_comentario_item.php',
+         url: '../components_actions/eliminar_comentario_item.php',
          type: 'POST',
          data: {
             ComentarioID: e.target[0].value

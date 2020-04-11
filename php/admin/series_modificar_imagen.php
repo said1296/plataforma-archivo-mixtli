@@ -17,7 +17,7 @@ if($_SESSION['tipo']!=1){
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
  
   <?php
-    include("../zComponents/head.php")
+    include("../components/head.php")
   ?>
 
   <link rel="stylesheet" href="../../themes/css/core.min.css" />
@@ -40,7 +40,7 @@ if($_SESSION['tipo']!=1){
 </head>
 
 <?php
-  include("../zComponents/header.php")
+  include("../components/header.php")
 ?>
 
 <body>

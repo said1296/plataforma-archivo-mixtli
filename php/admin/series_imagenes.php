@@ -30,7 +30,7 @@ if($_SESSION['tipo']!=1){
   <meta property="og:url" content="http://" />
 
    <?php
-      include("../zComponents/head.php");
+      include("../components/head.php");
    ?>
  </head>
   
@@ -39,7 +39,7 @@ if($_SESSION['tipo']!=1){
 
   
    <?php
-		include('../zComponents/header.php')
+		include('../components/header.php')
 	?>
   
   <!--- WRAPP --->
@@ -218,7 +218,7 @@ if($_SESSION['tipo']!=1){
       
    
          <?php
-            include("../zComponents/comentarios_series.php")
+            include("../components/comentarios_series.php")
          ?>
       
    </section>

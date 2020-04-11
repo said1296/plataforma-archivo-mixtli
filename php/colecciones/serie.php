@@ -23,7 +23,7 @@
     <meta property="og:url" content="http://" />
 
     <?php
-    include("../zComponents/head.php");
+    include("../components/head.php");
     ?>
 </head>
 
@@ -32,7 +32,7 @@
 
 
     <?php
-    include('../zComponents/header.php');
+    include('../components/header.php');
     $tipo = 'foto';
     $idUsuario = $row_serie['idUsuario'];
     $idSerie = $row_serie['id'];
@@ -40,7 +40,7 @@
     $titleSmall = "Colección";
     $titleBig = $row_serie['serie'];
     $ids=[$idUsuario, $idSerie, $id];
-    include('../zComponents/banner.php');
+    include('../components/banner.php');
     ?>
 
     <section class="section-wrap">
@@ -78,7 +78,7 @@
                         $ids=[$row['idUsuario'], $row['idSerie'], $row['id']];
                         $descripcion=$row['descripcion_img'];
                         $tipo=$row['tipo'];
-                        include('../zComponents/mediaCard.php');	
+                        include('../components/mediaCard.php');	
                     }
                     ?>
                 </div>
@@ -87,7 +87,7 @@
 
 
         <?php
-        include("../zComponents/comentarios_series.php")
+        include("../components/comentarios_series.php")
         ?>
 
     </section>

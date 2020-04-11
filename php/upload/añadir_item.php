@@ -23,13 +23,13 @@ if (!$row['idUsuario'] == $_SESSION['id'] and !$_SESSION['tipo'] == '1') {
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Añadir | Preservación Digital</title>
   <?php
-  include("../zComponents/head.php");
+  include("../components/head.php");
   ?>
 </head>
 
 <body>
     <?php
-    include('../zComponents/header.php');
+    include('../components/header.php');
     $tipo = 'foto';
     $idUsuario = $row['idUsuario'];
     $idSerie = $row['id'];
@@ -37,7 +37,7 @@ if (!$row['idUsuario'] == $_SESSION['id'] and !$_SESSION['tipo'] == '1') {
     $titleSmall = "Añadir a serie";
     $titleBig = $row['serie'];
     $ids=[$idUsuario, $idSerie, $id];
-    include('../zComponents/banner.php');
+    include('../components/banner.php');
     ?>
 
     <section class="section-wrap" id="register">

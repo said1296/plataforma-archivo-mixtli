@@ -13,7 +13,7 @@
   
   <title>Búsqueda | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../zComponents/head.php");
+      include("../components/head.php");
    ?>
  </head>
   
@@ -26,7 +26,7 @@
   </div>
   
 	<?php
-		include('../zComponents/header.php')
+		include('../components/header.php')
 	?>
   
   <!--- WRAPP --->

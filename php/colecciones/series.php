@@ -51,7 +51,7 @@
 
     <title>Grupo <?php echo $SelectGrupo  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
     <?php
-    include("../zComponents/head.php");
+    include("../components/head.php");
     ?>
 
     <link rel="stylesheet" href="../../themes/css/misc.css" />
@@ -66,8 +66,8 @@
     </div>
 
     <?php
-    include('../zComponents/header.php');
-    include('../zComponents/banner.php');
+    include('../components/header.php');
+    include('../components/banner.php');
     ?>
 
         <section class="section-wrap" style='padding-top: 0px;'>
@@ -115,7 +115,7 @@
                                 $href='../colecciones/serie.php?idSerie='.$idSerie;
                                 $buttons['Explorar']='../colecciones/serie.php?idSerie='.$idSerie;
                                 $ref='serie';
-                                include('../zComponents/mediaCard.php');
+                                include('../components/mediaCard.php');
                             } //end while
 
                         } else {

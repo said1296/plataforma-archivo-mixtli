@@ -11,7 +11,7 @@ if($_SESSION['tipo']!=1){
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Agregar imagen | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
    <?php
-      include("../zComponents/head.php");
+      include("../components/head.php");
    ?>
 	
   <link rel="stylesheet" href="../../themes/css/misc.css" />
@@ -26,7 +26,7 @@ if($_SESSION['tipo']!=1){
   </div>
   
 <?php
-   include('../zComponents/header.php')
+   include('../components/header.php')
 ?>
   
   <!--- WRAPP --->

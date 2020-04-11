@@ -5,7 +5,7 @@
 	<title>Colecciones | Preservación Digital Comunitaria</title>
 	
    <?php
-      include("../zComponents/head.php");
+      include("../components/head.php");
    ?>
  </head>
   
@@ -18,7 +18,7 @@
   </div>
   
 	<?php
-		include('../zComponents/header.php')
+		include('../components/header.php')
 	?>
   
   <!--- WRAPP --->
