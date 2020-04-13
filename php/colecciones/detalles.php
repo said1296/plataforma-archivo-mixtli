@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,7 +46,7 @@
     $idSerie = $row['idSerie'];
     $titleSmall = "Colección";
     $titleBig = $row['coleccion'];
-    $ids=[$idUsuario, $idSerie, 0];
+    $ids = [$idUsuario, $idSerie, 0];
     include('../components/banner.php');
     ?>
 
@@ -145,159 +145,79 @@
                 </div>
 
                 <?php
-                if ($row["tipo"] == "foto") {
+                    $ids=[$idUsuario, $idSerie, $id];
+                    include('../components/media.php');
                 ?>
-                    <div class="col-sm-6">
-                        <article>
-                            <div class="entry-img hover-scale">
-                                <a href="#" class="entry-category-label green">Mixtli</a>
-                                <a class="lightbox-gallery" title="<?php echo $row['descripcion_img']; ?>" href="data:image/jpg;base64,<?php echo base64_encode($row['img']);  ?>">
-                                    <img src='../../uploads/<?php echo implode("/", [$idUsuario, $idSerie, $id])  ?>.jpg' />
-                                </a>
-                            </div>
-                        </article>
-                    <?php
-                } else if ($row["tipo"] == "video") {
-                    ?>
-                        <div class="col-sm-6">
-                            <a href="#" class="entry-category-label green">Mixtli</a>
-                            <iframe class="embed-responsive-item" width=555vw height=350vh src="<?php
-                                                                                                $url = $row['link'];
-                                                                                                $finalUrl = '';
-                                                                                                if (strpos($url, 'facebook.com/') !== false) {
-                                                                                                    //it is FB video
-                                                                                                    $finalUrl .= 'https://www.facebook.com/plugins/video.php?href=' . rawurlencode($url) . '&show_text=1&width=200';
-                                                                                                } else if (strpos($url, 'vimeo.com/') !== false) {
-                                                                                                    //it is Vimeo video
-                                                                                                    $videoId = explode("vimeo.com/", $url)[1];
-                                                                                                    if (strpos($videoId, '&') !== false) {
-                                                                                                        $videoId = explode("&", $videoId)[0];
-                                                                                                    }
-                                                                                                    $finalUrl .= 'https://player.vimeo.com/video/' . $videoId;
-                                                                                                } else if (strpos($url, 'youtube.com/') !== false) {
-                                                                                                    //it is Youtube video
-                                                                                                    $videoId = explode("v=", $url)[1];
-                                                                                                    if (strpos($videoId, '&') !== false) {
-                                                                                                        $videoId = explode("&", $videoId)[0];
-                                                                                                    }
-                                                                                                    $finalUrl .= 'https://www.youtube.com/embed/' . $videoId;
-                                                                                                } else if (strpos($url, 'youtu.be/') !== false) {
-                                                                                                    //it is Youtube video
-                                                                                                    $videoId = explode("youtu.be/", $url)[1];
-                                                                                                    if (strpos($videoId, '&') !== false) {
-                                                                                                        $videoId = explode("&", $videoId)[0];
-                                                                                                    }
-                                                                                                    $finalUrl .= 'https://www.youtube.com/embed/' . $videoId;
-                                                                                                } else if (strpos($url, 'archive.org/') !== false) {
-                                                                                                    //it is Youtube video
-                                                                                                    $videoId = end(explode("/", $url));
-                                                                                                    if (strpos($videoId, '&') !== false) {
-                                                                                                        $videoId = explode("&", $videoId)[0];
-                                                                                                    }
-                                                                                                    $finalUrl .= 'https://www.archive.org/embed/' . $videoId;
-                                                                                                } else {
-                                                                                                    echo "Video inválido";
-                                                                                                }
-                                                                                                echo $finalUrl;
-                                                                                                ?>" allowfullscreen></iframe>
+
+                <span class="bottom-line" style-2></span>
+                <?php
+                echo $row['descripcion_img'] . "<br>";
+                $query = "SELECT * FROM descripciones WHERE ColeccionesID='$id'";
+                $resultado_descripciones = $conexion_tabla->query($query);
+                while ($row_descripciones = $resultado_descripciones->fetch_assoc()) {
+                    echo $row_descripciones['Descripcion'] . "<br>";
+                }
+                ?>
+                <div id="div-añadir-descripcion" class="mt-40">
+                    <form method='get' action="detalles_añadir.php" id='añadir-descripcion' class="mt-10" style="padding-bottom:0px;margin-bottom:0px;">
                         <?php
-                    } else if ($row["tipo"] == "audio") {
-                        ?>
-                            <div class="col-sm-6">
-                                <article>
-                                    <div class="entry-img hover-scale">
-                                        <a href="#" class="entry-category-label green">Mixtli</a>
-                                        <a class="lightbox-gallery" title="<?php echo $row['descripcion_img']; ?>" href="data:image/jpg;base64,<?php echo base64_encode($row['img']);  ?>">
-                                            <?php
-                                            if ($row['link']) {
-                                                $url = $row['link'];
-                                                if (strpos($url, "soundcloud.com/")) {
-                                                    $url = explode("soundcloud.com", $url)[1];
-                                                    $url_final = "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com" . $url . "&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true";
-                                                    echo "<iframe class='embed-responsive-item' width=555vw height=350vh src='" . $url_final . "' allow fullscreen></iframe>";
-                                                } elseif (strpos($url, "archive.org/")) {
-                                                    $url = end(explode("/", $url));
-                                                    $url_final = "https://archive.org/embed/" . $url;
-                                                    echo "<div style='top:200px; position:relative;'> <iframe class='embed-responsive-item' width=555vw height=350vh src='" . $url_final . "' allow fullscreen></iframe> </div>";
-                                                }
-                                            } else {
-                                                echo '<audio controls> <source src="data:audio/mpeg;base64,' . base64_encode($row['img']) . '"> </audio>';
-                                            }
-                                            ?>
-                                        </a>
-                                    </div>
-                                </article>
-                            <?php
+                        parse_str($_SERVER['QUERY_STRING'], $queryArray);
+                        foreach ($queryArray as $key => $value) {
+                            echo "<input type='hidden' name='$key' value='$value'>";
                         }
-                            ?>
+                        ?>
+                        <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
+                        <input type="hidden" name="tipo" value="descripcion">
+                        <div id="campos-añadir">
+                            <textarea name="descripcion" placeholder="Añada una descripcion..." id="añadir-descripcion-textarea" form='añadir-descripcion' style="resize:none;height:80px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success" style="background:green;border:none;width:100%;height:25px;position:relative;top:-26px;border-radius:0 0 20px 20px;text-transform: none; font-family: 'Raleway', sans-serif;font-size:12px;line-height:10px;">Añadir</button>
+                    </form>
+                </div>
+            </div>
 
-                            <span class="bottom-line" style-2></span>
-                            <?php
-                            echo $row['descripcion_img'] . "<br>";
-                            $query = "SELECT * FROM descripciones WHERE ColeccionesID='$id'";
-                            $resultado_descripciones = $conexion_tabla->query($query);
-                            while ($row_descripciones = $resultado_descripciones->fetch_assoc()) {
-                                echo $row_descripciones['Descripcion'] . "<br>";
-                            }
-                            ?>
-                            <div id="div-añadir-descripcion" class="mt-40">
-                                <form method='get' action="detalles_añadir.php" id='añadir-descripcion' class="mt-10" style="padding-bottom:0px;margin-bottom:0px;">
-                                    <?php
-                                    parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                                    foreach ($queryArray as $key => $value) {
-                                        echo "<input type='hidden' name='$key' value='$value'>";
+
+
+        </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <div class="right">
+                        <p>&nbsp;
+                            <ul class="text-center">
+                                <?php
+                                $ref = $_REQUEST['ref'];
+                                parse_str($_SERVER['QUERY_STRING'], $queryArray);
+                                unset($queryArray['id']);
+                                unset($queryArray['ref']);
+                                $queryString = http_build_query($queryArray);
+                                if ($row['tipo'] == 'foto') {
+                                    echo '<a href="../colecciones/viewimg.php?id=' . $row['id'] . '"><li class="btn btn-sm btn-light">Descargar</li></a>';
+                                } elseif ($row['tipo'] == "video") {
+                                    echo '<a target="_blank" href="' . $row['link'] . '"><li class="btn btn-sm btn-light">Link original</li></a>';
+                                } elseif ($row['tipo'] == 'audio') {
+                                    if (empty($row['img'])) {
+                                        echo '<a target="_blank" href="' . $row['link'] . '"><li class="btn btn-sm btn-light">Link original</li></a>';
                                     }
-                                    ?>
-                                    <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
-                                    <input type="hidden" name="tipo" value="descripcion">
-                                    <div id="campos-añadir">
-                                        <textarea name="descripcion" placeholder="Añada una descripcion..." id="añadir-descripcion-textarea" form='añadir-descripcion' style="resize:none;height:80px;"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-success" style="background:green;border:none;width:100%;height:25px;position:relative;top:-26px;border-radius:0 0 20px 20px;text-transform: none; font-family: 'Raleway', sans-serif;font-size:12px;line-height:10px;">Añadir</button>
-                                </form>
-                            </div>
-                            </div>
-
-
-
-                        </div>
+                                }
+                                ?>
+                                <a onClick='javascript:history.go(-1)'>
+                                    <li class="btn btn-sm btn-dark">Regresar</li>
+                                </a>
+                            </ul>
+                        </p>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="right">
-                                    <p>&nbsp;
-                                        <ul class="text-center">
-                                            <?php
-                                            $ref = $_REQUEST['ref'];
-                                            parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                                            unset($queryArray['id']);
-                                            unset($queryArray['ref']);
-                                            $queryString = http_build_query($queryArray);
-                                            if ($row['tipo'] == 'foto') {
-                                                echo '<a href="../colecciones/viewimg.php?id=' . $row['id'] . '"><li class="btn btn-sm btn-light">Descargar</li></a>';
-                                            } elseif ($row['tipo'] == "video") {
-                                                echo '<a target="_blank" href="' . $row['link'] . '"><li class="btn btn-sm btn-light">Link original</li></a>';
-                                            } elseif ($row['tipo'] == 'audio') {
-                                                if (empty($row['img'])) {
-                                                    echo '<a target="_blank" href="' . $row['link'] . '"><li class="btn btn-sm btn-light">Link original</li></a>';
-                                                }
-                                            }
-                                            ?>
-                                            <a onClick='javascript:history.go(-1)'><li class="btn btn-sm btn-dark">Regresar</li></a>
-                                        </ul>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php
-                    include("../components/comentarios_items.php");
-                    ?>
+        <?php
+        include("../components/comentarios_items.php");
+        ?>
 
     </section>
 

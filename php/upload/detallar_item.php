@@ -11,6 +11,7 @@ $row = $resultado->fetch_assoc();
 
 if (!$row['idUsuario'] == $_SESSION['id'] and !$_SESSION['tipo'] == '1') {
   header("Location: /php/login/index.php");
+	exit;
 }
 
 ?>

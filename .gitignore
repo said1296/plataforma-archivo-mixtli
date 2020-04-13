@@ -2,3 +2,5 @@
 commit
 /uploads/
 .vscode
+/uploads*/
+uploads*

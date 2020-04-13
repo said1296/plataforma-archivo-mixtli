@@ -2,23 +2,21 @@
     $buttons=[];
     if($ref=='serie'){
         $buttons['Explorar']='/php/colecciones/serie.php?'.'idSerie='.$row['id'];
-        // if($_SESSION['tipo']==1){
-        //     $buttons['Modificar']='/php/upload/modificar_serie.php?'.'idSerie='.$row['id'];
-        //     $buttons['Eliminar']='/php/components_actions/eliminar_serie.php?'.'idSerie='.$row['id'];
-        // }
+        if($_SESSION['tipo']==1){
+            $buttons['Modificar']='/php/upload/modificar_serie.php?idSerie='.$row['id'];
+            $buttons['Eliminar']='/php/upload/actions/eliminar_serie.php?'.'idSerie='.$row['id'];
+        }
     }
     elseif($ref=='historia'){
         $buttons['Leer']='/php/historias/ver_historia.php?idHistoria='.$row['id'];
     }else{
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
-        // if($_SESSION['tipo']==1){
-        //     $buttons['Modificar']='/php/components_actions/eliminar_imagen.php?';
-        // }
+        if($_SESSION['tipo']==1){
+            $buttons['Modificar']='/php/upload/modificar_item.php?id='.$row['id'];
+            $buttons['Eliminar']='/php/upload/actions/eliminar_item.php?id='.$row['id'];
+        }
     }
 
-    // if($_SESSION['tipo']==1){
-    //     $buttons['Eliminar']='mediaEliminar.php?'.$queryString;
-    // }
 ?>
 
 <div class="col-md-3 col-sm-6 col-xs-12 work-item">
