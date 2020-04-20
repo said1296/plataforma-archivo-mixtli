@@ -4,7 +4,7 @@
  
 	
 	
-	include("../zUtils/conexion_tabla.php");
+	include("../utils/conexion_tabla.php");
 	
 	$documento = $_POST['documento'];
 	$ano = $_POST['ano'];

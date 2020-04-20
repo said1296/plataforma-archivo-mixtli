@@ -6,7 +6,7 @@
   <?php
 	    $id = $_REQUEST['id'];
 		
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
  		 $query = "SELECT * FROM items
 					WHERE id = '$id'";
 	     $resultado = $conexion_tabla->query($query);
@@ -207,7 +207,7 @@
         <ul class="text-center">
          <a style="width:180px;" href="<?php
             parse_str($_SERVER['QUERY_STRING'],$queryArray);
-            $queryArray['id_colecciones']=$queryArray['id'];
+            $queryArray['idItem']=$queryArray['id'];
             $queryString=http_build_query($queryArray);
             echo "historias_imagenes_guardar.php?".$queryString;
             ?>" class="btn btn-sm btn-red">Agregar</a>

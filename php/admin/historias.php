@@ -77,7 +77,7 @@ if($_SESSION['tipo']!=1){
        </thead> 
        
        <?php
-		  include("../zUtils/conexion_tabla.php");
+		  include("../utils/conexion_tabla.php");
 		  //include_once 'fotografias.php';
 		  
 		   if(isset($_GET['pagina'])){

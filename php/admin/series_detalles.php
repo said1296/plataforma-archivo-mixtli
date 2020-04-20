@@ -15,7 +15,7 @@ if($_SESSION['tipo']!=1){
    $serie = $_REQUEST['serie'];
    $pagina = $_REQUEST['pagina'];
 
-   include("../zUtils/conexion_tabla.php");
+   include("../utils/conexion_tabla.php");
    $query = "SELECT * FROM items
          WHERE id = '$id'";
    $resultado = $conexion_tabla->query($query);

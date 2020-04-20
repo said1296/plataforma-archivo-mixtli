@@ -64,7 +64,7 @@
       
         <?php
 	     
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 		
 		 $por_Pagina = 15;
 		 $nums=1;

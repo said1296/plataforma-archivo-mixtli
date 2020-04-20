@@ -6,7 +6,7 @@
   <?php
 	    $SelectImagen_1 = $_GET['coleccion'];
 			 
-	     include("../zUtils/conexion_tabla.php");
+	     include("../utils/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM usuarios_";
 	     $resultado = $conexion_tabla->query($query);
@@ -94,7 +94,7 @@
         
         <?php
 	     $SelectImagen_1 = $_GET['coleccion'];
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 		 
 		 $query = "SELECT * FROM series WHERE coleccion='$SelectImagen_1'";
 		 
@@ -142,7 +142,7 @@
         <?php
 	     $SelectImagen_1 = $_GET['coleccion'];
 		 
-       include("../zUtils/conexion_tabla.php");
+       include("../utils/conexion_tabla.php");
        
 		 $query = "SELECT * FROM items WHERE coleccion='$SelectImagen_1' ";
 		 $resultado = $conexion_tabla->query($query);

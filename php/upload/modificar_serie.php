@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../zUtils/conexion_tabla.php");
+include("../utils/conexion_tabla.php");
 
 $idSerie = $_GET['idSerie'];
 $query = "SELECT * FROM series WHERE id = '$idSerie' LIMIT 1";
@@ -54,7 +54,7 @@ if ($_SESSION['tipo'] != 1 and $_SESSION['id']!=$row['idUsuario']) {
                 <img id="vista_previa" src="../../uploads/<?php echo implode("/", [$idUsuario, $idSerie, $id]) ?>.jpg" />
               </div>
               <div class="col-md-6">
-                <label class="left text-left">Nombre de la serie: <i>(formato dd/mm/aaaa)</i> </label>
+                <label class="left text-left">Nombre de la serie: </label>
                 <input type="text" REQUIRED id="serie" name="serie" placeholder="Nombre de la serie..." value="<?php echo $row["serie"] ?>" /><br /><br />
               </div>
 

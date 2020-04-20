@@ -15,7 +15,6 @@ include('../includes/conexion_tabla');
 
 	?>
 
-
 	<title>Búsqueda | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
 	<?php
 	include("../components/head.php");
@@ -51,7 +50,7 @@ include('../includes/conexion_tabla');
 					<div id="portfolio-container" class="works-grid small-gutter with-title">
 
 						<?php
-						include("../zUtils/conexion_tabla.php");
+						include("../utils/conexion_tabla.php");
 						if ($_GET["avanzada_serie"]) {
 							$columns[] = 'serie';
 							$weights[] = '3';
@@ -204,20 +203,20 @@ include('../includes/conexion_tabla');
 					$weights_query = substr($weights_query, 0, -1);
 					if ($tipo == "todos") {
 						$query = "SELECT items.*," . $matches_query . "
-    								FROM items
+									FROM items
 									LEFT JOIN usuarios_ ON idSerie=usuarios_.id
 									LEFT JOIN series ON idSerie=series.id
-    								WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
-    								ORDER BY (" . $weights_query . ") DESC
-    								LIMIT $empieza, $por_Pagina";
+									WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
+									ORDER BY (" . $weights_query . ") DESC
+									LIMIT $empieza, $por_Pagina";
 					} else {
 						$query = "SELECT items.*," . $matches_query . "
-    								FROM items
+									FROM items
 									LEFT JOIN usuarios_ ON idSerie=usuarios_.id
 									LEFT JOIN series ON idSerie=series.id
-    								WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
-    								AND tipo='$tipo'
-    								ORDER BY (" . $weights_query . ") DESC
+									WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
+									AND tipo='$tipo'
+									ORDER BY (" . $weights_query . ") DESC
 										LIMIT $empieza, $por_Pagina";
 					}
 
@@ -229,7 +228,7 @@ include('../includes/conexion_tabla');
 							$tipo = $row['tipo'];
 							$ids = [$row['idUsuario'], $row['idSerie'], $row['id']];
 							$descripcion = $row['descripcion_img'];
-							$href = "detalles.php?consulta=" . urlencode($_GET['consulta']) . "&id=" . $id;
+							$ref = null;
 							include('../components/mediaCard.php');
 						} //end WHILE
 					} else {

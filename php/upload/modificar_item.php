@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../zUtils/conexion_tabla.php");
+include("../utils/conexion_tabla.php");
 
 
 $id = $_GET['id'];
@@ -81,17 +81,17 @@ if ($_SESSION['tipo'] != 1 or $_SESSION['id'] != $row['idUsuario']) {
                 </div>
 
                 <?php
-                $query = "SELECT * FROM descripciones WHERE ColeccionesID='$id'";
+                $query = "SELECT * FROM descripciones WHERE idItem='$id'";
                 $descripciones = $conexion_tabla->query($query);
                 $i = 0;
                 while ($descripcion = $descripciones->fetch_assoc()) {
                 ?>
 
                     <div class="col-md-11 mb-0 mt-0 pt-0 pb-0">
-                        <input type="text" REQUIRED id="descripcion_img" name="descripcion-<?php echo $descripcion['DescripcionID'] ?>" placeholder="Describe la imagen..." value="<?php echo $descripcion["Descripcion"] ?>" />
+                        <input type="text" REQUIRED id="descripcion_img" name="descripcion-<?php echo $descripcion['id'] ?>" placeholder="Describe la imagen..." value="<?php echo $descripcion["descripcion"] ?>" />
                     </div>
                     <div class="col-md-1 mb-0 mt-0 pt-0 pb-0">
-                        <a class="btn btn-sm btn-red" href="series_eliminar_descripcion.php?<?php echo $_SERVER['QUERY_STRING'] ?>&DescripcionID=<?php echo $descripcion['DescripcionID'] ?>"> X </a>
+                        <a class="btn btn-sm btn-red" href="series_eliminar_descripcion.php?<?php echo $_SERVER['QUERY_STRING'] ?>&id=<?php echo $descripcion['id'] ?>"> X </a>
                     </div>
 
                 <?php

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	include("../zUtils/conexion_tabla.php");
+	include("../utils/conexion_tabla.php");
     
     $autor = $_POST['autor'];
 	$titulo = $_POST['titulo'];

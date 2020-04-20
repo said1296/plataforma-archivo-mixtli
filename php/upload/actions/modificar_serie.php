@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../zUtils/conexion_tabla.php");
+include("../../utils/conexion_tabla.php");
 
 $id = $_POST['idSerie'];
 $query = "SELECT * FROM series WHERE id='$id' LIMIT 1";
@@ -32,7 +32,7 @@ if ($_SESSION['id'] == $idUsuario or $_SESSION['tipo'] == 1) {
                 echo "ERROR SUBIENDO IMAGEN";
             }
         } else {
-            //echo '<script>javascript:history.go(-2)</script>';
+            echo '<script>javascript:history.go(-2)</script>';
         }
     } else {
         echo "<h1>HUBO UN ERROR.</h1>";

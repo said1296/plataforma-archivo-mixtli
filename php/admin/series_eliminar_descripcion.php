@@ -1,10 +1,10 @@
 <?php
 	
-    include("../zUtils/conexion_tabla.php");
+    include("../utils/conexion_tabla.php");
     
-    $DescripcionID = $_REQUEST['DescripcionID'];
+    $id = $_REQUEST['id'];
         
-	$query = "DELETE FROM descripciones WHERE DescripcionID = '$DescripcionID'";
+	$query = "DELETE FROM descripciones WHERE id = '$id'";
 	$resultado = $conexion_tabla->query($query);
 	
 	if($resultado){

@@ -26,7 +26,7 @@ if($_SESSION['tipo']!=1){
   
     <?php
         include('../components/header.php');
-        include("../zUtils/conexion_tabla.php");
+        include("../utils/conexion_tabla.php");
 	?>
   
   <!--- WRAPP --->

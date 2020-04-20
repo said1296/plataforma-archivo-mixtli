@@ -52,7 +52,7 @@
 	    <h2 class="bottom-line text-center">Descripción del proyecto</h2>
 			<p class="text-justify">
 				<?php
-						include("../zUtils/conexion_tabla.php");
+						include("../utils/conexion_tabla.php");
 						$query = "SELECT * FROM proyecto WHERE campo='descripcion'";
 						$resultado = $conexion_tabla->query($query);
 						$row = $resultado->fetch_assoc();

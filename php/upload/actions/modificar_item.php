@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../zUtils/conexion_tabla.php');
+include('../../utils/conexion_tabla.php');
 $id = $_POST['id'];
 $query = "SELECT * from items WHERE id='$id' LIMIT 1";
 $resultado = $conexion_tabla->query($query);
@@ -22,8 +22,8 @@ $resultado = $conexion_tabla->query($query);
 $i = 0;
 foreach ($_POST as $key => $value) {
     if ($i > 7) {
-        $DescripcionID = explode("-", $key)[1];
-        $query = "UPDATE descripciones SET Descripcion='$value' WHERE DescripcionID='$DescripcionID'";
+        $id = explode("-", $key)[1];
+        $query = "UPDATE descripciones SET descripcion='$value' WHERE id='$id'";
         $resultado = $conexion_tabla->query($query);
     }
     $i = $i + 1;

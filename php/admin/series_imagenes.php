@@ -14,7 +14,7 @@ if($_SESSION['tipo']!=1){
       $serie = $_GET['serie'];
       $paginaSeries=$_GET['pagina_series'];
          
-      include("../zUtils/conexion_tabla.php");
+      include("../utils/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);

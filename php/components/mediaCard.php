@@ -9,7 +9,22 @@
     }
     elseif($ref=='historia'){
         $buttons['Leer']='/php/historias/ver_historia.php?idHistoria='.$row['id'];
-    }else{
+        if($_SESSION['tipo']==1){
+            $buttons['Eliminar']='/php/historias/acciones/eliminar_historia.php?idHistoria='.$row['id'];
+        }
+    }elseif($ref=='historiaMedia'){
+        $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
+        if($_SESSION['tipo']==1){
+            $buttons['Quitar']='/php/historias/acciones/eliminar_item_historia.php?idHistoria='.$row_historia['id'].'&idItem='.$row['id']."&idUsuario=".$row['idUsuario'];
+        }
+    }
+    elseif($ref=='usuario'){
+        $buttons['Colecciones']='/php/colecciones/series.php?idUsuario='.$row['id'];
+        if($_SESSION['tipo']==1){
+            $buttons['Eliminar']='/php/comunidad/acciones/eliminar_colaborador.php?idUsuario='.$row['id'];
+        }
+    }
+    else{
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
         if($_SESSION['tipo']==1){
             $buttons['Modificar']='/php/upload/modificar_item.php?id='.$row['id'];

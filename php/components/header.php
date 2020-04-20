@@ -78,7 +78,7 @@
 									</ul>
 								</li>
 								<li> <a href="../documentos/" id="dropdown-a">Documentos</a> </li>
-								<li> <a href="../comunidad-del-archivo/" id="dropdown-a">Comunidad</a> </li>
+								<li> <a href="../comunidad/" id="dropdown-a">Comunidad</a> </li>
 								<li> <a href="../contacto/" id="dropdown-a">Contáctanos</a> </li>
 							</ul>
 						</div>

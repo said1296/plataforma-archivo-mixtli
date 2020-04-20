@@ -1,6 +1,6 @@
 <?php
 	
-	include("../zUtils/conexion_tabla.php");
+	include("../utils/conexion_tabla.php");
 	
     $campo = $_REQUEST['campo'];
     if($_GET['id']){

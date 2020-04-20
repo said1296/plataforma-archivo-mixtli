@@ -74,7 +74,7 @@ if($_SESSION['tipo']!=1){
 		   </ul>
 		  </li>
           <li> <a href="../documentos/">Documentos</a> </li>
-          <li> <a href="../comunidad-del-archivo/">Comunidad</a> </li>
+          <li> <a href="../comunidad/">Comunidad</a> </li>
           <li> <a href="../contacto/">Contáctanos</a> </li>
          </ul>
         </div>
@@ -155,7 +155,7 @@ if($_SESSION['tipo']!=1){
        </thead> 
        
        <?php
-		  include("../zUtils/conexion_tabla.php");
+		  include("../utils/conexion_tabla.php");
 		  //include_once 'fotografias.php';
 		 
 		  // cantidad de registros por pagina

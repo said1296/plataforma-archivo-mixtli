@@ -45,7 +45,7 @@ if($_SESSION['tipo']!=1){
 <body>
 
         <?php
-		  include("../zUtils/conexion_tabla.php");
+		  include("../utils/conexion_tabla.php");
 		  
 		  $id = $_REQUEST['id'];
 		  

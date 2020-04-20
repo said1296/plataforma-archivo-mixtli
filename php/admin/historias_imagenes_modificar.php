@@ -36,7 +36,7 @@ if($_SESSION['tipo']!=1){
 	 <div class="title-holder">
 	  <div class="title-text">
       <?php
-      include("../zUtils/conexion_tabla.php");
+      include("../utils/conexion_tabla.php");
 
       $id_historia = $_GET['id_historia'];
 
@@ -102,7 +102,7 @@ if($_SESSION['tipo']!=1){
         $empieza = ($pagina - 1) * $por_Pagina;
 
 		  //seleccionar los registros de la tabla gestion_imagen con LIMIT
-          $query = "SELECT * FROM historias_imgs WHERE id_historias='$id_historia' ORDER BY posicion ASC LIMIT $empieza, $por_Pagina";
+          $query = "SELECT * FROM historias_items WHERE idHistoria='$id_historia' ORDER BY posicion ASC LIMIT $empieza, $por_Pagina";
 		  
 		  //$resultado = mysqli_query($conexion_tabla, $query);
           //$query = "SELECT * FROM gestion_imagen";
@@ -111,9 +111,9 @@ if($_SESSION['tipo']!=1){
           $i=1;
 		    while($row = $resultado->fetch_assoc()){
 
-                $id_colecciones = $row['id_colecciones'];
+                $idItem = $row['idItem'];
 
-                $query2 = "SELECT * FROM items WHERE id='$id_colecciones'";
+                $query2 = "SELECT * FROM items WHERE id='$idItem'";
                 $resultado2 = $conexion_tabla->query($query2);
                 $row2 = $resultado2->fetch_assoc();
 
@@ -123,10 +123,10 @@ if($_SESSION['tipo']!=1){
            
       <tr>
          <td class="col-md-1">
-               <input type="hidden" id="valor-<?php echo $i ?>" name="id_colecciones" value="<?php echo $row['posicion'] ?>">
+               <input type="hidden" id="valor-<?php echo $i ?>" name="idItem" value="<?php echo $row['posicion'] ?>">
             <form id="forma-historias-<?php echo $i ?>" onsubmit="posicionSubmit(<? echo $i ?>, <? echo $row['posicion'] ?>)" method="POST" action="procesando_modificacion_imagen.php">
                <input type="hidden" name="id_relacion" value="<?php echo $row['id'] ?>">
-               <input type="hidden" name="id_historia" value="<?php echo $row['id_historias'] ?>">
+               <input type="hidden" name="id_historia" value="<?php echo $row['idHistoria'] ?>">
                <input id="img-<?php echo $i ?>" name="posicion" onfocusout="checarRepetidos(<?php echo $i ?>,<?php echo $row['posicion'] ?>)" type="number" value="<?php echo $row['posicion'] ?>">
             </form></td>
          <td class="col-md-2"> <?php echo $row2['coleccion']; ?></td>
@@ -156,7 +156,7 @@ if($_SESSION['tipo']!=1){
       <div>
        <?php
 		// seleccionar todo
-		$query = "SELECT * FROM historias_imgs WHERE id_historias='$id_historia'";
+		$query = "SELECT * FROM historias_items WHERE idHistoria='$id_historia'";
 		$resultado = $conexion_tabla->query($query);
 		//$resultado = mysqli_query($conexion_tabla, $query);
 					

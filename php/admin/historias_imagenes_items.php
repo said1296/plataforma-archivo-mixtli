@@ -14,7 +14,7 @@ if($_SESSION['tipo']!=1){
       $serie = $_GET['serie'];
       $paginaSeries=$_GET['pagina_series'];
          
-      include("../zUtils/conexion_tabla.php");
+      include("../utils/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);
@@ -150,7 +150,7 @@ if($_SESSION['tipo']!=1){
                               ?>" class="btn btn-lg btn-black">Detalles</a>
                            <a style="width:180px;" href="<?php
                               parse_str($_SERVER['QUERY_STRING'],$queryArray);
-                              $queryArray['id_colecciones']=$row['id'];
+                              $queryArray['idItem']=$row['id'];
                               $queryString=http_build_query($queryArray);
                               echo "historias_imagenes_guardar.php?".$queryString;
                               ?>" class="btn btn-lg btn-red">Agregar</a>

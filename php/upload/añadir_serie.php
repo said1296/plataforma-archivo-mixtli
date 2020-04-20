@@ -5,7 +5,7 @@ if (!isset($_SESSION['id'])) {
   header("Location: /php/login/index.php");
 }
 
-include("../zUtils/conexion_tabla.php");
+include("../utils/conexion_tabla.php");
 
 $idUsuario = $_SESSION['id'];
 $query = "SELECT * FROM usuarios_ WHERE id = '$idUsuario'";

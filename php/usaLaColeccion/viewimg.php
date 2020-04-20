@@ -91,13 +91,13 @@ class PDF extends FPDF
 				   $this->MultiCell(160,5,utf8_decode($row['descripcion_serie'])  );
 
 					$query = "SELECT * FROM descripciones 
-								WHERE ColeccionesID = '$id'";
+								WHERE idItem = '$id'";
 					$descripciones = $conexion_tabla->query($query);
 					while($row_descripciones = $descripciones->fetch_assoc()){
 						$this->SetFont('Arial','I',9);
 						$this->Cell(25,5,utf8_decode(''));
 						$this->SetFont('Arial','',9);
-						$this->MultiCell(160,5,utf8_decode($row_descripciones['Descripcion'])  );
+						$this->MultiCell(160,5,utf8_decode($row_descripciones['descripcion'])  );
 					}
 					$this->Ln();
 

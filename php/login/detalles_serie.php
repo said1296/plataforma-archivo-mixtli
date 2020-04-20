@@ -34,7 +34,7 @@
   <?php
 	    $id = $_REQUEST['id'];
 		
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
  		 $query = "SELECT * FROM items
 					WHERE id = '$id' ";
 		 
@@ -287,10 +287,10 @@
       <span class="bottom-line" style-2></span>
       <?php
          echo $row['descripcion_img']."<br>";
-         $query="SELECT * FROM descripciones WHERE ColeccionesID='$id'";
+         $query="SELECT * FROM descripciones WHERE idItem='$id'";
          $resultado_descripciones=$conexion_tabla->query($query);
          while($row_descripciones=$resultado_descripciones->fetch_assoc()){
-            echo $row_descripciones['Descripcion']."<br>";
+            echo $row_descripciones['descripcion']."<br>";
          }
       ?>
          <div id="div-añadir-descripcion" class="mt-30">

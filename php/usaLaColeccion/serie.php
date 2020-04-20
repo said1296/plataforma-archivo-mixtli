@@ -6,7 +6,7 @@
   <?php
       $serie = $_GET['serie'];
          
-      include("../zUtils/conexion_tabla.php");
+      include("../utils/conexion_tabla.php");
          
       $query = "SELECT * FROM series WHERE serie='$serie'";
       $resultado = $conexion_tabla->query($query);
@@ -70,7 +70,7 @@
             <div id="portfolio-container" class="works-grid small-gutter with-title">
                
                <?php
-               include("../zUtils/conexion_tabla.php");
+               include("../utils/conexion_tabla.php");
                
                $query = "SELECT * FROM items WHERE serie='$serie'";
                

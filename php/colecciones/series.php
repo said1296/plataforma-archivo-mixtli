@@ -1,36 +1,70 @@
 <?php
 session_start();
-include("../zUtils/conexion_tabla.php");
+include("../utils/conexion_tabla.php");
 
 if (isset($_GET['grupo'])) {
     $grupo = urldecode($_GET['grupo']);
+    $queryKey = 'grupo';
 
     $titleSmall = 'Grupo';
     $titleBig = $grupo;
 
-    if (!isset($_GET['consulta'])) {
-        $query = "SELECT * FROM series WHERE grupo = '$grupo'";
-    } else {
+    $query = "SELECT * FROM series WHERE grupo = '$grupo'";
+    $mensajeError='No hay series en este grupo';
+}elseif(isset($_GET['idUsuario'])){
+    $idUsuario=$_GET['idUsuario'];
+    $queryKey='idUsuario';
+
+    $query="SELECT * FROM usuarios_ WHERE id=$idUsuario";
+    $resultado=$conexion_tabla->query($query);
+    $row=$resultado->fetch_assoc();
+    $titleBig=$row['autor'];
+    $titleSmall=$row['coleccion'];
+    $tipo='foto';
+    $ids=[$idUsuario, 0];
+
+    $query="SELECT * FROM series WHERE idUsuario=$idUsuario";
+    $mensajeError='Este colaborador no tiene series';
+}
+
+if(isset($_GET['consulta'])){
+    if($queryKey=='grupo'){
         $columns = ['serie', 'descripcion_serie', 'usuarios_.autor'];
         $weights = ['3', '2', '1'];
-        $consulta = $_GET['consulta'];
-
-        $matches_query = '';
-        $weights_query = '';
-        for ($i = 0; $i < sizeof($columns); $i++) {
-            $matches_query = $matches_query . "MATCH (" . $columns[$i] . ") AGAINST ('" . $consulta . "' IN BOOLEAN MODE) AS " . end(explode(".", $columns[$i])) . "_match, ";
-            $weights_query = $weights_query . end(explode(".", $columns[$i])) . "_match*" . $weights[$i] . "+";
-        }
-        $matches_query = substr($matches_query, 0, -2);
-        $weights_query = substr($weights_query, 0, -1);
-
-        $query = "SELECT series.*, $matches_query
-                        FROM series
-                        LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
-                        WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
-                        AND grupo='$grupo'
-                        ORDER BY ($weights_query)";
+    }elseif($queryKey=='idUsuario'){
+        $columns = ['serie', 'descripcion_serie'];
+        $weights = ['3', '2'];
     }
+
+    $consulta = $_GET['consulta'];
+
+    $matches_query = '';
+    $weights_query = '';
+    for ($i = 0; $i < sizeof($columns); $i++) {
+        $matches_query = $matches_query . "MATCH (" . $columns[$i] . ") AGAINST ('" . $consulta . "' IN BOOLEAN MODE) AS " . end(explode(".", $columns[$i])) . "_match, ";
+        $weights_query = $weights_query . end(explode(".", $columns[$i])) . "_match*" . $weights[$i] . "+";
+    }
+    $matches_query = substr($matches_query, 0, -2);
+    $weights_query = substr($weights_query, 0, -1);
+
+    if($queryKey=='grupo'){
+        $query = "SELECT series.*, $matches_query
+        FROM series
+        LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
+        WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
+        AND grupo='$grupo'
+        ORDER BY ($weights_query)";
+    }elseif($queryKey=='idUsuario'){
+        $query = "SELECT series.*, $matches_query
+        FROM series
+        LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
+        WHERE MATCH(" . implode(',', $columns) . ") AGAINST ('$consulta' IN BOOLEAN MODE)
+        AND idUsuario='$idUsuario'
+        ORDER BY ($weights_query)";
+    }
+
+    $mensajeError='No hay resultados';
+
 }
 ?>
 
@@ -44,16 +78,7 @@ if (isset($_GET['grupo'])) {
         }
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-    <?php
-
-    $SelectGrupo = $_GET['grupo'];
-
-
-    ?>
-
-
-    <title>Grupo <?php echo $SelectGrupo  ?> | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
+    <title> Series | Preservación Digital Comunitaria para la persistencia de nuestra imagen</title>
     <?php
     include("../components/head.php");
     ?>
@@ -92,8 +117,7 @@ if (isset($_GET['grupo'])) {
         <div class="container">
             <div class="col-sm-12">
                 <div class="nav-search type-2">
-                    <form action="series.php" method="get">
-                        <input type='hidden' name='grupo' value=<?php echo urlencode($grupo) ?>>
+                    <form onsubmit="handleConsulta(event)">
                         <input type="search" id="search-bar" name="consulta" placeholder="Buscar serie">
                         <button type="submit" class="search-button">
                             <i class="icon icon_search"></i>
@@ -116,14 +140,13 @@ if (isset($_GET['grupo'])) {
                             $tipo = 'foto';
                             $ids = [$row['idUsuario'], $row['id'], 0];
                             $descripcion = $row['serie'];
-                            $href = '../colecciones/serie.php?idSerie=' . $idSerie;
                             $buttons['Explorar'] = '../colecciones/serie.php?idSerie=' . $idSerie;
                             $ref = 'serie';
                             include('../components/mediaCard.php');
                         } //end while
 
                     } else {
-                        echo "No hay series en este grupo.";
+                        echo $mensajeError;
                     }
 
 
@@ -131,36 +154,6 @@ if (isset($_GET['grupo'])) {
 
                 </div>
             </div>
-
-            <div class="row">
-                <div>
-                    <br /><br /><br />
-                    <?php
-                    // seleccionar todo
-                    //		$query = "SELECT * FROM gestion_imagen";
-                    //		$resultado = $conexion_tabla->query($query);
-                    //$resultado = mysqli_query($conexion_tabla, $query);
-
-                    //contar el total de registros
-                    //		$totalRegistros = mysqli_num_rows($resultado);
-
-                    //usando ciel para dividir el total de resgitros
-                    //		$totalPaginas = ceil($totalRegistros / $por_Pagina);
-
-                    // link a la primera página
-                    //		echo "<ul>";
-                    //		echo "<li class='btn btn-md btn-light'><a href='index.php?pagina=1'>".'Primera '."</a></li>";
-
-                    //		for($i=1; $i<=$totalPaginas; $i++){
-                    //			echo "<li class='btn btn-md btn-light'><a href='index.php?pagina=".$i."'>".$i."</a></li>";
-                    //			}
-                    // link a la ultima página
-                    //		echo "<li class='btn btn-md btn-light'><a  href='index.php?pagina=$totalPaginas'>".'Última '."</a></li>";
-                    //		echo "</ul>";
-                    ?>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -212,6 +205,18 @@ if (isset($_GET['grupo'])) {
     <script type="text/javascript" src="../../themes/js/jquery.themepunch.revolution.min.js"></script>
     <script type="text/javascript" src="../../themes/js/rev-slider.js"></script>
     <script type="text/javascript" src="../../themes/js/scripts.js"></script>
+
+    <script>
+    function handleConsulta(e) {
+        e.preventDefault();
+        var consulta = e.target[0].value
+        if(consulta){
+            location.replace('series.php?<?php echo $queryKey."=".$_GET[$queryKey]?>&consulta='+consulta)
+        }else{
+            location.replace('series.php?<?php echo $queryKey."=".$_GET[$queryKey]?>')
+        }
+    }
+    </script>
 
 </body>
 

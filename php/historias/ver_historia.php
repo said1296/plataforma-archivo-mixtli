@@ -1,9 +1,10 @@
 <?php
-	$idHistoria=$_GET['idHistoria'];
+   session_start();
+   $idHistoria=$_GET['idHistoria'];
 	if($idHistoria==''){
-      $query_historia = "SELECT * FROM historias where mes=1";
+      $query_historia = "SELECT * FROM historias WHERE mes=1 LIMIT 1";
 	}else{
-      $query_historia = "SELECT * FROM historias where id='$idHistoria'";  
+      $query_historia = "SELECT * FROM historias WHERE id='$idHistoria' LIMIT 1";  
    }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,9 +13,8 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-
    <?php
-   include("../zUtils/conexion_tabla.php");
+   include("../utils/conexion_tabla.php");
 
    $resultado_historia = $conexion_tabla->query($query_historia);
    $row_historia = $resultado_historia->fetch_assoc();
@@ -62,14 +62,13 @@
                <div style="display:flex; flex-wrap: wrap; justify-content:center;" class="works-grid small-gutter with-title">
 
                   <?php
-                  $id_historias = $row_historia['id'];
-                  $query = "SELECT * FROM historias_imgs WHERE id_historias='$id_historias' ORDER BY posicion ASC";
+                  $idHistoria = $row_historia['id'];
+                  $query = "SELECT * FROM historias_items WHERE idHistoria='$idHistoria' ORDER BY posicion ASC";
                   $resultadoImagenes = $conexion_tabla->query($query);
-
                   if ($resultadoImagenes->num_rows > 0) {
                      while ($rowImagenes = $resultadoImagenes->fetch_assoc()) {
-                        $id_colecciones = $rowImagenes['id_colecciones'];
-                        $query = "SELECT * FROM items WHERE id='$id_colecciones'";
+                        $idItem = $rowImagenes['idItem'];
+                        $query = "SELECT * FROM items WHERE id='$idItem'";
                         $resultado = $conexion_tabla->query($query);
                         $row = $resultado->fetch_assoc();
 
@@ -77,7 +76,7 @@
                         $id=$row['id'];
                         $ids=[$row['idUsuario'], $row['idSerie'], $id];
                         $descripcion=$row['descripcion_img'];
-                        $href="../colecciones/detalles.php?consulta=".urlencode($_GET['consulta'])."&id=".$id;
+                        $ref='historiaMedia';
                         include('../components/mediaCard.php');
                      } //end while
                   } else {

@@ -84,7 +84,7 @@
       <?php
         $SelectColeccion = $_SESSION['u_usuario'];
 			 
-	     include("../zUtils/conexion_tabla.php");
+	     include("../utils/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM usuarios_";
 	     $resultado = $conexion_tabla->query($query);

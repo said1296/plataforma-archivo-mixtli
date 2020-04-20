@@ -79,7 +79,7 @@ if($_SESSION['tipo']!=1){
 					}
 		 
 		 
-					include("../zUtils/conexion_tabla.php");
+					include("../utils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";
@@ -228,7 +228,7 @@ if($_SESSION['tipo']!=1){
 					$consulta = $_REQUEST['consulta'];
 					$columns_query = [];
 		 
-					include("../zUtils/conexion_tabla.php");
+					include("../utils/conexion_tabla.php");
 					if($_GET["avanzada_autor"])
 					{
 						$columns_query[]="autor";

@@ -7,7 +7,7 @@
 	    $SelectImagen_1 = $_GET['coleccion'];
 		$SelectGrupo = $_GET['grupo'];
 		
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM coleccion_master";
 	     $resultado = $conexion_tabla->query($query);
@@ -92,7 +92,7 @@
 	     $SelectImagen_1 = $_GET['coleccion'];
 		 $SelectGrupo = $_GET['grupo'];
 		 
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 		 
 		 $por_Pagina = 12;
 		 $nums=1;

@@ -322,7 +322,7 @@ if($_SESSION['tipo']!=1){
       
         <?php
 	    $id_historia = $_GET['id_historia'];
-		 	include("../zUtils/conexion_tabla.php");
+		 	include("../utils/conexion_tabla.php");
 			$query = "SELECT * FROM series";
 		 	$resultado = $conexion_tabla->query($query);
 		 

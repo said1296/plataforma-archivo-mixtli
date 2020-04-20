@@ -4,7 +4,7 @@
 	$usuario = $_POST['usuario'];
 	$contrasena = $_POST['contrasena'];
 	
-	include("../zUtils/conexion_tabla.php");
+	include("../utils/conexion_tabla.php");
 	
 	$resultado = $conexion_tabla->query(" SELECT * FROM usuariosadmin_ WHERE usuario='$usuario' AND contrasena='$contrasena'");
 	

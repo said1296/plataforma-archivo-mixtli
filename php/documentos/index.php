@@ -58,7 +58,7 @@
       
         <?php
 	     
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 		 //include_once 'fotografias.php';
 		 
 		 // cantidad de registros por pagina

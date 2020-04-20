@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../zUtils/conexion_tabla.php");
+include("../../utils/conexion_tabla.php");
 
 $serie = $_REQUEST['serie'];
 $id = $_REQUEST['id'];

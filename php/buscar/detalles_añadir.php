@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	include("../zUtils/conexion_tabla.php");
+	include("../utils/conexion_tabla.php");
 
 	$tipo=$_GET['tipo'];
 	$id = $_GET['id'];
@@ -41,11 +41,11 @@
 		$query = "UPDATE items SET lugar='$lugares' WHERE id='$id'";
 		$resultado = $conexion_tabla->query($query);
 	}elseif($tipo=="descripcion"){
-		$Descripcion = $_GET['descripcion'];
-		$ColeccionesID = $_GET['id'];
+		$descripcion = $_GET['descripcion'];
+		$idItem = $_GET['id'];
 		unset($queryArray['descripcion']);
 		
-		$query = "INSERT INTO descripciones(ColeccionesID,Descripcion) VALUES('$ColeccionesID','$Descripcion')";
+		$query = "INSERT INTO descripciones(idItem,descripcion) VALUES('$idItem','$descripcion')";
 		$resultado = $conexion_tabla->query($query);
 	}
 

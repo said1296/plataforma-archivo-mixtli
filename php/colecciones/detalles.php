@@ -12,7 +12,7 @@ session_start();
     <?php
     $id = $_REQUEST['id'];
 
-    include("../zUtils/conexion_tabla.php");
+    include("../utils/conexion_tabla.php");
     $query = "SELECT items.*, series.serie, series.grupo, series.coleccion, usuarios_.autor FROM items
                 LEFT JOIN usuarios_ ON items.idUsuario=usuarios_.id
                 LEFT JOIN series ON items.idSerie=series.id
@@ -78,15 +78,8 @@ session_start();
                     ?>
                     <i id="añadir-lugares" style="color:#3c763d; font-size:22px; cursor:pointer; position:relative; top:4px;" class="icon_plus_alt"></i>
                     <div class="mt-10 ocultar añadir" id="añadir-lugares-div">
-                        <form action="detalles_añadir.php" method="get">
-                            <?php
-                            parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                            foreach ($queryArray as $key => $value) {
-                                echo "<input type='hidden' name='$key' value='$value'>";
-                            }
-                            ?>
-                            <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
-                            <input type="hidden" name="tipo" value="lugares">
+                        <form action="./acciones/crear_lugares.php" method="post">
+                            <input type="hidden" name="idItem" value="<?php echo $id ?>">
                             <input type="text" REQUIRED data-role="tagsinput" id="lugares" name="lugares" placeholder="Separados por comas..." value="" />
                             <button type="submit" class="btn btn-success" style="background:none;border:none;"><i style="color:#3c763d; font-size:30px; cursor:pointer; position:relative;" class="icon_check_alt"></i></button>
                             <button type="button" id="cancelar-lugares" class="btn btn-danger" style="background:none;border:none;"><i style="color:#ef5659; font-size:30px; cursor:pointer; position:relative;left:-20px;" class="icon_close_alt"></i></button>
@@ -103,15 +96,8 @@ session_start();
                     ?>
                     <i id="añadir-personajes" style="color:#3c763d; font-size:22px; cursor:pointer; position:relative; top:4px;" class="icon_plus_alt"></i>
                     <div class="mt-10 ocultar añadir" id="añadir-personajes-div">
-                        <form action="detalles_añadir.php" method="get">
-                            <?php
-                            parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                            foreach ($queryArray as $key => $value) {
-                                echo "<input type='hidden' name='$key' value='$value'>";
-                            }
-                            ?>
-                            <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
-                            <input type="hidden" name="tipo" value="personajes">
+                        <form action="./acciones/crear_personajes.php" method="post">
+                            <input type="hidden" name="idItem" value="<?php echo $id ?>">
                             <input type="text" REQUIRED data-role="tagsinput" id="personajes" name="personajes" placeholder="Separados por comas..." value="" />
                             <button type="submit" class="btn btn-success" style="background:none;border:none;"><i style="color:#3c763d; font-size:30px; cursor:pointer; position:relative;" class="icon_check_alt"></i></button>
                             <button type="button" id="cancelar-personajes" class="btn btn-danger" style="background:none;border:none;"><i style="color:#ef5659; font-size:30px; cursor:pointer; position:relative;left:-20px;" class="icon_close_alt"></i></button>
@@ -128,15 +114,8 @@ session_start();
                     ?>
                     <i id="añadir-descriptores" style="color:#3c763d; font-size:22px; cursor:pointer; position:relative; top:6px;" class="icon_plus_alt"></i> <br />
                     <div class="mt-10 ocultar añadir" id="añadir-descriptores-div">
-                        <form action="detalles_añadir.php" method="get">
-                            <?php
-                            parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                            foreach ($queryArray as $key => $value) {
-                                echo "<input type='hidden' name='$key' value='$value'>";
-                            }
-                            ?>
-                            <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
-                            <input type="hidden" name="tipo" value="descriptores">
+                        <form action="./acciones/crear_descriptores.php" method="post">
+                            <input type="hidden" name="idItem" value="<?php echo $id ?>">
                             <input type="text" REQUIRED data-role="tagsinput" class="descriptores" id="descriptores" name="descriptores" placeholder="Separados por comas..." value="" />
                             <button type="submit" class="btn btn-success" style="background:none;border:none;"><i style="color:#3c763d; font-size:30px; cursor:pointer; position:relative;" class="icon_check_alt"></i></button>
                             <button type="button" id="cancelar-descriptores" class="btn btn-danger" style="background:none;border:none;"><i style="color:#ef5659; font-size:30px; cursor:pointer; position:relative;left:-20px;" class="icon_close_alt"></i></button>
@@ -152,22 +131,15 @@ session_start();
                 <span class="bottom-line" style-2></span>
                 <?php
                 echo $row['descripcion_img'] . "<br>";
-                $query = "SELECT * FROM descripciones WHERE ColeccionesID='$id'";
+                $query = "SELECT * FROM descripciones WHERE idItem='$id'";
                 $resultado_descripciones = $conexion_tabla->query($query);
                 while ($row_descripciones = $resultado_descripciones->fetch_assoc()) {
-                    echo $row_descripciones['Descripcion'] . "<br>";
+                    echo $row_descripciones['descripcion'] . "<br>";
                 }
                 ?>
                 <div id="div-añadir-descripcion" class="mt-40">
-                    <form method='get' action="detalles_añadir.php" id='añadir-descripcion' class="mt-10" style="padding-bottom:0px;margin-bottom:0px;">
-                        <?php
-                        parse_str($_SERVER['QUERY_STRING'], $queryArray);
-                        foreach ($queryArray as $key => $value) {
-                            echo "<input type='hidden' name='$key' value='$value'>";
-                        }
-                        ?>
-                        <input type="hidden" name="ref" value="<?php echo $_SERVER['PHP_SELF'] ?>">
-                        <input type="hidden" name="tipo" value="descripcion">
+                    <form id='añadir-descripcion' action="./acciones/crear_descripcion.php" method='post'>
+                        <input type="hidden" name="idItem" value="<?php echo $id ?>">
                         <div id="campos-añadir">
                             <textarea name="descripcion" placeholder="Añada una descripcion..." id="añadir-descripcion-textarea" form='añadir-descripcion' style="resize:none;height:80px;"></textarea>
                         </div>

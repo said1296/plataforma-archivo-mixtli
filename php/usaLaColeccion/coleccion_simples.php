@@ -6,7 +6,7 @@
   <?php
 	    $SelectImagen_1 = $_GET['coleccion'];
 			 
-	     include("../zUtils/conexion_tabla.php");
+	     include("../utils/conexion_tabla.php");
 			 
 	     $query = "SELECT * FROM items";
 	     $resultado = $conexion_tabla->query($query);
@@ -94,7 +94,7 @@
        
         <?php
 	     $SelectImagen_1 = $_GET['coleccion'];
-		 include("../zUtils/conexion_tabla.php");
+		 include("../utils/conexion_tabla.php");
 		 $query = "SELECT * FROM items";
 	     $resultado = $conexion_tabla->query($query);
 		 while($row = $resultado->fetch_assoc()){

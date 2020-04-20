@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../zUtils/conexion_tabla.php");
+include("../../utils/conexion_tabla.php");
 
 $idSerie = $_REQUEST['idSerie'];
 $query = "SELECT * FROM series WHERE id = '$idSerie' LIMIT 1";

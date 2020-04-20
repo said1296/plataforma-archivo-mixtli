@@ -1,6 +1,6 @@
 <?php
 
-include("../../zUtils/conexion_tabla.php");
+include("../../utils/conexion_tabla.php");
 
 $autor = $_POST['autor'];
 $usuario = $_POST['usuario'];

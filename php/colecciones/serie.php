@@ -1,7 +1,7 @@
 <?php
     session_start();
     $idSerie=$_GET['idSerie'];
-    include('../zUtils/conexion_tabla.php');
+    include('../utils/conexion_tabla.php');
     $query = "SELECT series.*, usuarios_.autor FROM series 
                 LEFT JOIN usuarios_ ON series.idUsuario=usuarios_.id
                 WHERE series.id='$idSerie'";
@@ -69,7 +69,7 @@
                 <div id="portfolio-container" class="works-grid small-gutter with-title">
 
                     <?php
-                    include("../zUtils/conexion_tabla.php");
+                    include("../utils/conexion_tabla.php");
 
                     $query = "SELECT * FROM items WHERE idSerie='$idSerie'";
 
