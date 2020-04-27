@@ -6,10 +6,10 @@
 	
 	include("../utils/conexion_tabla.php");
 	
-	$resultado = $conexion_tabla->query(" SELECT * FROM usuarios_ WHERE usuario='$usuario' AND contrasena='$contrasena' LIMIT 1");
+	$resultado = $conexion_tabla->query(" SELECT * FROM usuarios_ WHERE usuario='$usuario' LIMIT 1");
 	$row=$resultado->fetch_assoc();
 	
-	if(mysqli_num_rows($resultado)>0){
+	if(mysqli_num_rows($resultado)>0 && password_verify($contrasena, $row['contrasena'])==true){
 		$_SESSION['u_usuario'] = $usuario;
 		$_SESSION['id']=$row['id'];
 		$_SESSION['tipo']=0;

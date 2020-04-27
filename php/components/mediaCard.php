@@ -2,31 +2,31 @@
     $buttons=[];
     if($ref=='serie'){
         $buttons['Explorar']='/php/colecciones/serie.php?'.'idSerie='.$row['id'];
-        if($_SESSION['tipo']==1){
+        if($_SESSION['tipo']==1 or $_SESSION['id']==$row['idUsuario']){
             $buttons['Modificar']='/php/upload/modificar_serie.php?idSerie='.$row['id'];
             $buttons['Eliminar']='/php/upload/actions/eliminar_serie.php?'.'idSerie='.$row['id'];
         }
     }
     elseif($ref=='historia'){
         $buttons['Leer']='/php/historias/ver_historia.php?idHistoria='.$row['id'];
-        if($_SESSION['tipo']==1){
+        if($_SESSION['tipo']==1 or $_SESSION['id']==$row['idUsuario']){
             $buttons['Eliminar']='/php/historias/acciones/eliminar_historia.php?idHistoria='.$row['id'];
         }
     }elseif($ref=='historiaMedia'){
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
-        if($_SESSION['tipo']==1){
+        if($_SESSION['tipo']==1 or $_SESSION['id']==$row['idUsuario']){
             $buttons['Quitar']='/php/historias/acciones/eliminar_item_historia.php?idHistoria='.$row_historia['id'].'&idItem='.$row['id']."&idUsuario=".$row['idUsuario'];
         }
     }
     elseif($ref=='usuario'){
         $buttons['Colecciones']='/php/colecciones/series.php?idUsuario='.$row['id'];
-        if($_SESSION['tipo']==1){
+        if($_SESSION['tipo']==1 or $_SESSION['id']==$row['idUsuario']){
             $buttons['Eliminar']='/php/comunidad/acciones/eliminar_colaborador.php?idUsuario='.$row['id'];
         }
     }
     else{
         $buttons['Detalles']='/php/colecciones/detalles.php?'.'id='.$row['id'];
-        if($_SESSION['tipo']==1){
+        if($_SESSION['tipo']==1 or $_SESSION['id']==$row['idUsuario']){
             $buttons['Modificar']='/php/upload/modificar_item.php?id='.$row['id'];
             $buttons['Eliminar']='/php/upload/actions/eliminar_item.php?id='.$row['id'];
         }
@@ -36,7 +36,7 @@
 
 <div class="col-md-3 col-sm-6 col-xs-12 work-item">
     <div class="work-container">
-        <div class="work-img">
+        <div class="work-img" style="min-height:100px; background-color: gray">
             <?php
             if ($tipo=='foto') {
                 echo '<img src="/uploads/' . implode("/", $ids) . '.jpg" alt="">';

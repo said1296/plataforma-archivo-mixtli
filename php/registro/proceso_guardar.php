@@ -1,6 +1,6 @@
 <?php
 
-include("../../utils/conexion_tabla.php");
+include("../utils/conexion_tabla.php");
 
 $autor = $_POST['autor'];
 $usuario = $_POST['usuario'];
@@ -19,13 +19,22 @@ $filenameUser = $_FILES['imagenUser']['name'];
 $imagenColeccion = file_get_contents($_FILES['img1']['tmp_name']);
 $filenameColeccion = $_FILES['img1']['name'];
 
+$query = "SELECT id FROM usuarios_ WHERE usuario='$usuario' LIMIT 1";
+$resultado = $conexion_tabla->query($query);
+if(mysqli_num_rows($resultado)>0){
+	$error="Ya existe ese usuario";
+	include_once('index.php');
+	exit;
+}
 
-$query = "INSERT INTO usuarios_(autor,usuario,contrasena,email,ocupacion,soy,origen,residencia,edad,genero,coleccion) VALUES('$autor','$usuario','$contrasena','$email','$ocupacion','$soy','$origen','$residencia','$edad','$genero','$coleccion')";
+$contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
+$query = "INSERT INTO usuarios_(autor,usuario,contrasena,email,ocupacion,soy,origen,residencia,edad,genero,coleccion)
+		VALUES('$autor','$usuario','$contrasena_hash','$email','$ocupacion','$soy','$origen','$residencia','$edad','$genero','$coleccion')";
 $resultado = $conexion_tabla->query($query) or die(mysqli_error($conexion_tabla));
 
 if (mysqli_affected_rows($conexion_tabla)>0) {
 	$idUsuario = mysqli_insert_id($conexion_tabla);
-	$uploadDir = "../../../uploads/".$idUsuario;
+	$uploadDir = "../../uploads/".$idUsuario;
 	mkdir($uploadDir);
 	$uploadPath = $uploadDir."/0.jpg";
 	$ext = end(explode(".", $filenameUser));
@@ -43,11 +52,15 @@ if (mysqli_affected_rows($conexion_tabla)>0) {
 			$f = file_put_contents($uploadPath, $imagenColeccion);
 		}
 		if ($f) {
-			header("Location: ../../login/index.php");
+			header("Location: ../login/index.php");
 		} else {
+			$query = "DELETE FROM usuarios_ WHERE id=$idUsuario";
+			$resultado = $conexion_tabla->query($query) or die(mysqli_error($conexion_tabla));
 			echo "ERROR SUBIENDO IMAGEN DE COLECCION";
 		}
 	} else {
+		$query = "DELETE FROM usuarios_ WHERE id=$idUsuario";
+		$resultado = $conexion_tabla->query($query) or die(mysqli_error($conexion_tabla));
 		echo "ERROR SUBIENDO IMAGEN DE USUARIO";
 	}
 } else {

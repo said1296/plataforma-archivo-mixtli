@@ -8,8 +8,8 @@ $query = "SELECT * FROM items WHERE id = '$id'";
 $resultado = $conexion_tabla->query($query);
 $row = $resultado->fetch_assoc();
 
-if ($_SESSION['tipo'] != 1 or $_SESSION['id'] != $row['idUsuario']) {
-    header("Location: index.php");
+if ($_SESSION['tipo'] != 1 and $_SESSION['id'] != $row['idUsuario']) {
+    header("Location: /php/login/index.php");
 	exit;
 }
 ?>

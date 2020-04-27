@@ -25,6 +25,8 @@ if ($_SESSION['tipo'] == 1) {
         } else {
             echo "ERROR ELIMINANDO USUARIO DE LA BASE";
         }
+    }else{
+        echo "ERROR ELIMINANDO ARCHIVOS DEL SERVIDOR";
     }
 } else {
     echo "ERROR CON LOS PERMISOS.";
@@ -49,6 +51,6 @@ function rrmdir($dir)
             return false;
         }
     } else {
-        return false;
+        return true;
     }
 }
